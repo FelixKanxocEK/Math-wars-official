@@ -1,0 +1,221 @@
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+
+.rock_right_hand_img {
+  width: 350px;
+  margin-right: -15px;
+  transition: 0.2s all ease-in;
+}
+
+.scissors_right_hand_img {
+  width: 400px;
+  margin-top: 25px;
+  margin-right: -15px;
+  transition: 0.2s all ease-in;
+}
+
+.paper_right_hand_img {
+  width: 430px;
+  margin-right: -40px;
+  transition: 0.2s all ease-in;
+}
+
+.player_info {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.person {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  border: 4px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+}
+
+.person > svg {
+  width: 50px;
+  height: 50px;
+  color: white;
+}
+
+.star_container {
+  margin-right: 20px;
+}
+
+.star {
+  color: white;
+  width: 50px !important;
+  height: 50px !important;
+  margin: 0 4px;
+}
+
+.active_star {
+  color: var(--red) !important;
+}
+
+.opponent_container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.opponent_card {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  border: 4px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotatey(360deg);
+  }
+}
+
+.opponent_card > svg {
+  width: 110px;
+  height: 110px;
+  color: white;
+}
+
+.opponent_text {
+  font-size: 18px;
+  color: white;
+  margin: 8px 0;
+}
+.browler{
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-40%, -40%);
+  width: calc(240px / 7);
+  height: calc(418px / 8);
+  /* margin-top: 10%; */
+  object-fit: inherit;
+  background: url(../../images/characters/brawler.png);
+  animation: animate 1s steps(4) infinite;
+  scale: 2.5;
+  transform: rotateY(-360deg);
+}
+@keyframes animate {
+  from {
+    background-position-x: 0;
+  }
+  to{
+    background-position-x: -190px;
+  }
+}
+
+.browler_animate{
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-40%, -40%);
+  width: calc(240px / 7);
+  height: calc(418px / 8);
+  /* margin-top: 10%; */
+  object-fit: inherit;
+  background: url(../../images/characters/brawler.png);
+  animation: animate 1s steps(4) infinite;
+  scale: 2.5;
+  transform: rotateY(-360deg);
+}
+
+@keyframes animate {
+  from{
+    background-position-x: 0;
+  }
+  to{
+    background-position-x: 180px;
+  }
+} 
+
+.eri_death{
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  transform: translate(-40%, -40%);
+  width: calc(990px / 19);
+  height: calc(110px);
+  /* margin-top: 10%; */
+  object-fit: inherit;
+  background: url(../../images/characters/eri-d.png);
+  animation: animated 2s steps(9) infinite;
+  scale: 2.5;
+  transform: rotateY(-160deg);
+}
+
+@keyframes animated {
+  from{
+    background-position-x: 0;
+  }
+  to{
+    background-position-x: 990px;
+  }
+}
+
+.eri_eat{
+  position: absolute;
+  top: 43%;
+  left: 60%;
+  transform: translate(-40%, -40%);
+  width: calc(1080px / 22);
+  height: calc(90px);
+  /* margin-top: 10%; */
+  object-fit: inherit;
+  background: url(../../images/characters/eri-eat.png);
+  animation: animatex 2s steps(12) infinite;
+  scale: 2.5;
+  transform: rotateY(-160deg);
+}
+@keyframes animatex {
+  from{
+    background-position-x: 0;
+  }
+  to{
+    background-position-x: 1080px;
+  }
+}
+
+.eri_attack{
+  position: absolute;
+  top: 70%;
+  left: 60%;
+  transform: translate(-40%, -40%);
+  width: calc(1190px / 14);
+  height: calc(70px);
+  /* margin-top: 10%; */
+  object-fit: inherit;
+  background: url(../../images/characters/eri-attack.png);
+  animation: animate 2s steps(14) infinite;
+  scale: 2.5;
+  transform: rotateY(-160deg);
+}
+@keyframes animate {
+  from{
+    background-position: 0;
+  }
+  to{
+    background-position: 1190px;
+  }
+}
