@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const Panel = () => {
   const [problemas, setProblemas] = useState([]);
-  const [imagenes, setImagenes] = useState([]);
+  // const [imagenes, setImagenes] = useState([]);
   const [charCode, setCharCode] = useState(97);
   const [categories, setCategories] = useState([]);
 
