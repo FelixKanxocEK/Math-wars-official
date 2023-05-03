@@ -68,9 +68,9 @@
 
 .ken_death{
   position: absolute;
-  top: 50%;
+  bottom: 30%;
   left: 15%;
-  transform: translate(-40%, -40%);
+  /* transform: translate(-40%, -40%); */
   width: calc(920px/ 10);
   height: calc(75px);
   /* margin-top: 10%; */
@@ -94,9 +94,9 @@
 
 .ken_run{
   position: absolute;
-  top: 80%;
+  bottom: 30%;
   left: 15%;
-  transform: translate(-40%, -40%);
+  /* transform: translate(-40%, -40%); */
   width: calc(1305px/ 9);
   height: calc(80px);
   /* margin-top: 10%; */
@@ -119,9 +119,9 @@
 
 .ken{
   position: absolute;
-  top: 20%;
+  bottom: 30%;
   left: 15%;
-  transform: translate(-40%, -40%);
+  /* transform: translate(-40%, -40%); */
   width: calc(1159px / 8);
   height: calc(80px);
   /* margin-top: 10%; */

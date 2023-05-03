@@ -152,9 +152,9 @@
 
 .eri_death{
   position: absolute;
-  top: 15%;
-  left: 20%;
-  transform: translate(-40%, -40%);
+  bottom: 30%;
+  right: 30%;
+  /* transform: translate(-50%, -50%); */
   width: calc(990px / 19);
   height: calc(110px);
   /* margin-top: 10%; */
@@ -176,9 +176,9 @@
 
 .eri_eat{
   position: absolute;
-  top: 43%;
-  left: 60%;
-  transform: translate(-40%, -40%);
+  bottom: 30%;
+  right: 30%;
+  /* transform: translate(-40%, -40%); */
   width: calc(1080px / 22);
   height: calc(90px);
   /* margin-top: 10%; */
@@ -199,9 +199,9 @@
 
 .eri_attack{
   position: absolute;
-  top: 70%;
-  left: 60%;
-  transform: translate(-40%, -40%);
+  bottom: 30%;
+  right: 30%;
+  /* transform: translate(-40%, -40%); */
   width: calc(1190px / 14);
   height: calc(70px);
   /* margin-top: 10%; */

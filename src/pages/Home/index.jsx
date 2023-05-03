@@ -8,7 +8,7 @@ import styles from "./styles.module.css";
 const Home = () => {
   return (
     <>
-      <div className={styles.left}>
+      <div className={`${styles.left}`}>
         <img src={logo} alt="logo" className={styles.logo} />
       </div>
       <div className={styles.right}>
@@ -23,8 +23,8 @@ const Home = () => {
           className={styles.rock_hand}
         />
         <div className={styles.btn_container}>
-          <Button name="play with friend" type="friend" />
-          <Button name="Play with stranger" type="stranger" />
+          <Button name="Jugar con un amigo" type="friend" />
+          {/* <Button name="Play with stranger" type="stranger" /> */}
         </div>
       </div>
     </>

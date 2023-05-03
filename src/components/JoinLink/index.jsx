@@ -12,7 +12,7 @@ const JoinLink = ({ link }) => {
   return (
     <div className={styles.join_link_container}>
       <div className={styles.copy_link} onClick={handleChange}>
-        {active ? "Copied !" : "Click to copy !"}
+        {active ? "Copiado!" : "Click para copiar !"}
       </div>
       <button
         className={
@@ -25,7 +25,7 @@ const JoinLink = ({ link }) => {
         {link}
       </button>
       <h2 className={styles.join_link_text}>
-        Send this link to your friend to connect.
+        ¡Manda el link a tu amigo y desafialo!
       </h2>
     </div>
   );

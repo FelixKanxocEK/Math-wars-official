@@ -3,7 +3,7 @@ import { SocketContext } from "../../context/SocketContext";
 import JoinLink from "../JoinLink";
 import PersonIcon from "@mui/icons-material/Person";
 // import StarIcon from "@mui/icons-material/Star";
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import rock_right_hand_img from "../../images/rock_right_hand.png";
 import paper_right_hand_img from "../../images/paper_right_hand.png";
 import scissors_right_hand_img from "../../images/scissors_right_hand.png";
@@ -13,8 +13,7 @@ const PlayerTwo = ({ result }) => {
   const [option, setOption] = useState("rock");
   const [score, setScore] = useState(0);
   const rockHand = useRef();
-  const { room, player_2 } = useContext(SocketContext);
-
+  const { room, player_2, players } = useContext(SocketContext);
   useEffect(() => {
     if (result.show) {
       setOption(room.players[player_2].option);
@@ -24,7 +23,7 @@ const PlayerTwo = ({ result }) => {
       // setOption("rock");
     } else {
       // if (rockHand.current)
-        // rockHand.current.style.transform = `rotate(${result.rotate}deg)`;
+      // rockHand.current.style.transform = `rotate(${result.rotate}deg)`;
     }
   }, [result]);
 
@@ -46,21 +45,29 @@ const PlayerTwo = ({ result }) => {
         </div>
       )}
       {player_2 && (
-        <div className={styles.player_info}>
-          <div className={styles.star_container}>
-            {[...Array(3).keys()].map((ele, index) =>
-              index + 1 <= score ? (
-                <FavoriteIcon
-                  key={index}
-                  className={`${styles.star} ${styles.active_star}`}
-                />
-              ) : (
-                <FavoriteIcon key={index} className={styles.star} />
-              )
-            )}
+        <div>
+          <div className={styles.player_info}>
+            <div className={styles.star_container}>
+              {[...Array(3).keys()].map((ele, index) =>
+                index + 1 <= score ? (
+                  <FavoriteIcon
+                    key={index}
+                    className={`${styles.star} ${styles.active_star}`}
+                  />
+                ) : (
+                  <FavoriteIcon key={index} className={styles.star} />
+                )
+              )}
+            </div>
+            <div className={styles.person}>
+              <PersonIcon />
+            </div>
           </div>
-          <div className={styles.person}>
-            <PersonIcon />
+          <div className={`${styles.eri_attack } hidden`}>
+          </div>
+          <div className={`${styles.eri_attack } hidden`}>
+          </div>
+          <div className={styles.eri_eat}>
           </div>
         </div>
       )}
@@ -87,10 +94,6 @@ const PlayerTwo = ({ result }) => {
         />
       )} */}
       {/* <img className={styles.browler}/> */}
-      <img className={styles.eri_eat}/>
-      <img className={styles.eri_death}/>
-      <img className={styles.eri_attack}/>
-
     </div>
   );
 };
