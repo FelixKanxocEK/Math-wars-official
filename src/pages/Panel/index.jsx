@@ -22,18 +22,17 @@ const Panel = () => {
       const response = await axios.get(
         `${process.env.REACT_APP_SOCKET_URL}/panel`
       );
-      console.log(response);
       const problemasArray = [];
       if (response.status == 200) {
         let newArray = [];
         response.data.data.map((problema) => {
+          let opcionesRespuestas = JSON.parse(problema.opciones)
           problemasArray.push({
-            ...problemas,
             id: problema.id,
             planteamiento: problema.planteamiento,
-            opciones: JSON.parse(problema.respuestas),
-            respuesta: problema.opcion,
-            categoria: problema.categoria,
+            opciones: opcionesRespuestas,
+            respuesta: problema.Respuesta.opcion,
+            categoria: problema.categoria.nombre,
           });
         });
         setProblemas(problemasArray);
@@ -49,10 +48,10 @@ const Panel = () => {
         `${process.env.REACT_APP_SOCKET_URL}/categories`
       );
       if (response.status == 200) {
-        console.log(response);
         setCategories(response.data.categories);
       }
     } catch (error) {
+      console.log(error)
       Swal.fire({
         title: "Lo sentimos, ha ocurrido un error",
         text: "Intentelo más tarde",
@@ -62,7 +61,6 @@ const Panel = () => {
   };
 
   const eliminarProblema = async (id) => {
-    event.preventDefault();
     Swal.fire({
       title: "¿Desea eliminar este problema?",
       icon: "question",
