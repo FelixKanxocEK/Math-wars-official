@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { convertCharCode } from "../../helpers/ResetOptions";
 import { MathJax, MathJaxContext } from "better-react-mathjax";
 import Loader from "./Loader";
+import Latex from "react-latex";
 
 const Formulario = ({
   handleSubmit,
@@ -19,7 +20,7 @@ const Formulario = ({
   setEcuacion,
   categories,
   category,
-  setCategory
+  setCategory,
 }) => {
   const [charCode, setCharCode] = useState(97);
 
@@ -38,20 +39,18 @@ const Formulario = ({
           <label htmlFor="problem" className="font-bold mb-1">
             Problema:{" "}
           </label>
-          <MathJaxContext>
-            <input
-              id="problem"
-              name="problem"
-              type="text"
-              placeholder="Escribe el problema..."
-              className="border-2 py-2 px-1 rounded-md outline-none focus:border-blue-500"
-              value={problem.value}
-              onChange={(e) => setProblem({ value: e.target.value, error: "" })}
-            />
-            <MathJax className="my-2 mx-auto">
-              {problem.value != "" ? `\\(${problem.value}\\)` : ""}
-            </MathJax>
-          </MathJaxContext>
+          <input
+            id="problem"
+            name="problem"
+            type="text"
+            placeholder="Escribe el problema..."
+            className="border-2 py-2 px-1 rounded-md outline-none focus:border-blue-500"
+            value={problem.value}
+            onChange={(e) => setProblem({ value: e.target.value, error: "" })}
+          />
+          <div className="mt-6 flex justify-center">
+            <Latex>{problem.value != "" ? `$$${problem.value}$$` : ""}</Latex>
+          </div>
           {problem.error ? (
             <p className="p-2 bg-red-600 text-white text-center rounded mt-3">
               {problem.error}
@@ -64,17 +63,16 @@ const Formulario = ({
           </label>
           {options.length < 3 ? (
             <>
-              <MathJaxContext>
-                <textarea
-                  value={ecuacion}
-                  onChange={(e) => setEcuacion(e.target.value)}
-                  className="border-2 py-2 px-1 rounded-md outline-none focus:border-blue-500"
-                />
-
-                <MathJax className="my-5 mx-auto">
-                  {ecuacion != "" ? `\\(${ecuacion}\\)` : ""}
-                </MathJax>
-              </MathJaxContext>
+              <textarea
+                value={ecuacion}
+                onChange={(e) => setEcuacion(e.target.value)}
+                className="border-2 py-2 px-1 rounded-md outline-none focus:border-blue-500"
+              />
+              <div className="mt-6 mb-6 flex justify-center">
+                <Latex>
+                  {ecuacion != "" ? `$$${ecuacion}$$` : ""}
+                </Latex>
+              </div>
               <button
                 type="button"
                 className="border rounded py-1 px-2 bg-green-600 hover:bg-green-700 text-white"
@@ -169,7 +167,9 @@ const Formulario = ({
                 id="category"
                 className="border-2 py-2 px-1 mt-2 rounded-md outline-none focus:border-blue-500 w-full"
                 value={category.value}
-                onChange={(e) => setCategory({value: e.target.value, error: ''})}
+                onChange={(e) =>
+                  setCategory({ value: e.target.value, error: "" })
+                }
               >
                 <option value=""> --- Seleccione una opcion --- </option>
                 {categories.map((op, key) => (
