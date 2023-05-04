@@ -30,7 +30,10 @@ const Formulario = ({
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center flex-col" >
+      <div className="flex justify-end items-end w-full px-5 pt-5" >
+        <a className="rounded-lg bg-blue-500 hover:bg-blue-700 transition-all duration-300 px-4 py-3 text-white" href="https://www.hostmath.com/Default.aspx" target={"_blank"} >Como crear problemas</a>
+      </div>
       <form
         className="border-2 rounded-md shadow-md w-1/2 my-10 py-5 px-4 bg-white"
         onSubmit={(e) => handleSubmit(e)}
