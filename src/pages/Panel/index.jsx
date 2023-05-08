@@ -62,7 +62,6 @@ const Panel = () => {
   };
 
   const eliminarProblema = async (id) => {
-    event.preventDefault();
     Swal.fire({
       title: "¿Desea eliminar este problema?",
       icon: "question",

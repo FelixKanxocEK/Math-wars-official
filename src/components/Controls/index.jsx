@@ -4,8 +4,19 @@ import rock_right_hand_img from "../../images/rock_right_hand.png";
 import paper_right_hand_img from "../../images/paper_right_hand.png";
 import scissors_right_hand_img from "../../images/scissors_right_hand.png";
 import styles from "./styles.module.css";
-
+import movSound from "../../sound/mov.mp3"
+import { Howl, Howler } from "howler";
 function Controls() {
+  Howler.autoUnlock = false;
+  Howler.autoSuspend = false;
+  var mov = new Howl({
+    src:[movSound],
+    volume: 1
+   });
+
+   const soundMov = () =>{
+    mov.play();
+   }
   const [option, setOption] = useState("");
   const { socket, room } = useContext(SocketContext);
 
@@ -34,6 +45,7 @@ function Controls() {
             : styles.option_btn
         }
         onClick={handleChange}
+        onPointerOver={soundMov}
         value="rock"
       >
         <img
@@ -50,6 +62,7 @@ function Controls() {
             : styles.option_btn
         }
         onClick={handleChange}
+        onPointerOver={soundMov}
         value="paper"
       >
         <img
@@ -66,6 +79,7 @@ function Controls() {
             : styles.option_btn
         }
         onClick={handleChange}
+        onPointerOver={soundMov}
         value="scissors"
       >
         <img
