@@ -10,10 +10,42 @@ import lose_img from "../../images/lose.png";
 import boom_img from "../../images/boom.png";
 import styles from "./styles.module.css";
 import scene from "../../images/resources/Scene3_Bg.jpeg"
-
-
+// import fight from "../../music/fight1.ogg"
+import music from "../../music/pista1.mp3";
+import { Howl, Howler } from "howler";
 
 const Room = () => {
+  // Howler.autoUnlock = false;
+  // Howler.autoSuspend = false;
+
+  // var fightTrack = new Howl({
+  //   src:[fight],
+  //   loop: true,
+  //   volume: 0.4,
+  // })
+
+  // var track1 = new Howl({
+  //   src:[music],
+  //   autoplay: false,
+  //   play:false
+  // })
+ 
+  // const [avoidExtraCall, setAvoidExtraCall] = useState(false);
+
+  //   const handleClick = () =>{
+  //     if(!avoidExtraCall){
+        
+        
+  //       if(track1.playing){
+  //         track1.stop();
+  //         fightTrack.play();
+  //         }
+  //         setAvoidExtraCall(true);
+
+        
+  //     }
+  //   }
+
   const [result, setResult] = useState({
     rotate: 0,
     show: false,
