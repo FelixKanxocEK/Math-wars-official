@@ -27,3 +27,16 @@
 	overflow: hidden;
 	position: relative;
 }
+
+.preview-mathjax .MathJax .MJX-TEX {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	line-height: 5px;
+}
+
+.preview-mathjax .MathJax .MJX-TEX .mjx-i mjx-utext {
+	padding: 0!important;
+}
+
