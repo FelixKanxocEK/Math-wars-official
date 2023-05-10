@@ -97,27 +97,39 @@ const Room = () => {
   }, [room, socket, player_1, player_2]);
 
   const validateOptions = (value) => {
+    
+
     switch (value) {
       case "rock paper":
+        console.log('desde rock paper')
         return { score: [0, 1], text: "lose" };
       case "paper scissors":
+        console.log('desde "paper scissors')
+
         return { score: [0, 1], text: "lose" };
       case "scissors rock":
+        console.log('desde scissors rock')
+
         return { score: [0, 1], text: "lose" };
       case "paper rock":
+        console.log('desde paper rock')
         return { score: [1, 0], text: "win" };
       case "scissors paper":
+        console.log('desde scissors paper')
         return { score: [1, 0], text: "win" };
       case "rock scissors":
+        console.log('desde rock scissors')
+
         return { score: [1, 0], text: "win" };
       default:
+        console.log('Empate');
         return { score: [0, 0], text: "tie" };
     }
   };
 
   const performAnimation = async (text) => {
     const timer = (ms) => new Promise((res) => setTimeout(res, ms));
-
+    console.log('desde performAnimation')
     for (let i = 0; i <= 8; i++) {
       if (i === 7) {
         setResult({ rotate: 0, show: true, reset: false });
