@@ -67,7 +67,7 @@ function Controls() {
               : styles.option_btn
           }
           onClick={handleChange}
-          onPointerOver={soundMov}
+          // onPointerOver={soundMov}
           value={key}>
               <MathJaxContext>
                 <MathJax> {`\\(${inciso}\\)`} </MathJax>
