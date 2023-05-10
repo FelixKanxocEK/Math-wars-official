@@ -44,6 +44,10 @@ const Room = () => {
   //     }
   //   }
 
+  var pistolSound = new Howl({
+    src:[pistol],
+    volume: 0.8
+  })
   const [result, setResult] = useState({
     rotate: 0,
     show: false,

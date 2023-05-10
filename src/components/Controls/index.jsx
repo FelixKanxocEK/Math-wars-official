@@ -42,6 +42,7 @@ function Controls() {
     room.players[socket.id].option = input.value;
     room.players[socket.id].optionLock = true;
     socket.emit("room:update", room);
+    buttonS.play();
   };
 
   return (
