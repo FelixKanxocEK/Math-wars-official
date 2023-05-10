@@ -48,11 +48,11 @@ const Room = () => {
   //   src:[pistol],
   //   volume: 0.8
   // })
-  // const [result, setResult] = useState({
-  //   rotate: 0,
-  //   show: false,
-  //   reset: false,
-  // });
+  const [result, setResult] = useState({
+    rotate: 0,
+    show: false,
+    reset: false,
+  });
   const [resultText, setResultText] = useState("");
   const { socket, room, player_1, player_2 } = useContext(SocketContext);
   const navigate = useNavigate();
