@@ -12,14 +12,19 @@ const SocketContextProvider = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [players, setPlayers] = useState([]);
+  const [listQuestions, setListQuestion] = useState([]);
 
   useEffect(() => {
     const socket = io(process.env.REACT_APP_SOCKET_URL);
     setSocket(socket);
 
     socket.on("room:get", (payload) => {
+      console.log(payload);
       setRoom(payload);
       setPlayers(Object.values(payload.players));
+      setListQuestion(payload.problemas);
+      // socket.emit("room:getProblemas", payload);
+
       let play_1 = Object.keys(payload.players)[0];
       let play_2 = Object.keys(payload.players)[1];
 
@@ -38,7 +43,6 @@ const SocketContextProvider = ({ children }) => {
         let pathname = "/result";
         if (pathname !== location.pathname) navigate(pathname);
       }
-      console.log(payload.players, ' desde payload');
     });
   }, []);
 
@@ -51,7 +55,8 @@ const SocketContextProvider = ({ children }) => {
         player_1,
         player_2,
         navigate,
-        players
+        players,
+        listQuestions,
       }}
     >
       {children}

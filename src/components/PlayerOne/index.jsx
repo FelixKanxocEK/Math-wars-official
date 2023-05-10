@@ -43,8 +43,6 @@ const PlayerOne = ({ result }) => {
     }
   }, [result]);
 
-  console.log(players.length, " desde room");
-
   return (
     <>
       {players.length == 2 ? (

@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 const PanelLayout = () => {
     return (
         <>
-            <main className='bg-gray-100 h-screen'>
+            <main className='bg-gray-100 h-screen overflow-x-hidden'>
                 <Outlet />
             </main>
         </>
