@@ -12,6 +12,7 @@ import styles from "./styles.module.css";
 import scene from "../../images/resources/Scene3_Bg.jpeg"
 // import fight from "../../music/fight1.ogg"
 import music from "../../music/pista1.mp3";
+import pistol from "../../sound/pistol.mp3"
 import { Howl, Howler } from "howler";
 
 const Room = () => {
@@ -46,6 +47,10 @@ const Room = () => {
   //     }
   //   }
 
+  var pistolSound = new Howl({
+    src:[pistol],
+    volume: 0.8
+  })
   const [result, setResult] = useState({
     rotate: 0,
     show: false,
@@ -105,7 +110,7 @@ const Room = () => {
       case "scissors rock":
         return { score: [0, 1], text: "lose" };
       case "paper rock":
-        return { score: [1, 0], text: "win" };
+        return { score: [1, 0], text: "win"};
       case "scissors paper":
         return { score: [1, 0], text: "win" };
       case "rock scissors":
@@ -148,7 +153,9 @@ const Room = () => {
         {player_2 && <Controls />}
         {resultText === "win" && (
           <img src={win_img} alt="win_img" className={styles.win_img} />
+
         )}
+
         {/* <Example /> */}
         {resultText === "lose" && (
           <img src={lose_img} alt="lose_img" className={styles.lose_img} />

@@ -5,6 +5,7 @@ import paper_right_hand_img from "../../images/paper_right_hand.png";
 import scissors_right_hand_img from "../../images/scissors_right_hand.png";
 import styles from "./styles.module.css";
 import movSound from "../../sound/mov.mp3"
+import buttonSound from "../../sound/button.mp3"
 import { Howl, Howler } from "howler";
 function Controls() {
   Howler.autoUnlock = false;
@@ -13,6 +14,11 @@ function Controls() {
     src:[movSound],
     volume: 1
    });
+
+   var buttonS = new Howl({
+    src:[buttonSound],
+    volume: 1
+   })
 
    const soundMov = () =>{
     mov.play();
@@ -33,6 +39,7 @@ function Controls() {
     room.players[socket.id].option = input.value;
     room.players[socket.id].optionLock = true;
     socket.emit("room:update", room);
+    buttonS.play();
   };
 
   return (
