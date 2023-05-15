@@ -44,10 +44,10 @@ const Room = () => {
   //     }
   //   }
 
-  var pistolSound = new Howl({
-    src:[pistol],
-    volume: 0.8
-  })
+  // var pistolSound = new Howl({
+  //   src:[pistol],
+  //   volume: 0.8
+  // })
   const [result, setResult] = useState({
     rotate: 0,
     show: false,
@@ -101,6 +101,7 @@ const Room = () => {
         }else {
           result = { score: [0, 0], text: "tie" };
         }
+        
 
         console.log(result, ' desde result');
         room.players[player_1].score += result.score[0];
