@@ -6,20 +6,19 @@ import { SocketContext } from "../../context/SocketContext";
 import styles from "./styles.module.css";
 import movSound from "../../sound/mov.mp3";
 import { Howl, Howler } from "howler";
-import Latex from "react-latex";
 import { MathJaxContext, MathJax } from "better-react-mathjax";
 
 function Controls() {
-  Howler.autoUnlock = false;
-  Howler.autoSuspend = false;
-  var mov = new Howl({
-    src: [movSound],
-    volume: 1,
-  });
+  // Howler.autoUnlock = false;
+  // Howler.autoSuspend = false;
+  // var mov = new Howl({
+  //   src: [movSound],
+  //   volume: 1,
+  // });
 
-  const soundMov = () => {
-    mov.play();
-  };
+  // const soundMov = () => {
+  //   mov.play();
+  // };
   const [option, setOption] = useState("");
   const { socket, room, listquestions } = useContext(SocketContext);
   const [options, setOptions] = useState([]);
@@ -42,7 +41,7 @@ function Controls() {
     room.players[socket.id].option = input.value;
     room.players[socket.id].optionLock = true;
     socket.emit("room:update", room);
-    buttonS.play();
+    // buttonS.play();
   };
 
   return (
@@ -68,7 +67,7 @@ function Controls() {
               : styles.option_btn
           }
           onClick={handleChange}
-          onPointerOver={soundMov}
+          // onPointerOver={soundMov}
           value={key}>
               <MathJaxContext>
                 <MathJax> {`\\(${inciso}\\)`} </MathJax>

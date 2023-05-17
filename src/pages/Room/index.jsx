@@ -71,6 +71,7 @@ const Room = () => {
 
   useEffect(() => {
     const calculateResults = async () => {
+      console.log(room);
       const players = room?.players;
       if (
         players &&
@@ -79,31 +80,24 @@ const Room = () => {
       ) {
         let result = { score: [0, 0], text: "tie" };
 
-        // if (players[player_1].option !== players[player_2].option) {
-        //   result = validateOptions(
-        //     `${players[player_1].option} ${players[player_2].option}`
-        //   );
-        // }
-
-        // if(players[player_1].option == room.problemas.respuestaCorrecta && players[player_2].option == room.problemas.respuestaCorrecta) {
-          
-        // }
-
         if (
           players[player_1].option == room.problemas.respuestaCorrecta &&
           players[player_2].option == room.problemas.respuestaCorrecta
         ) {
-          result = { score: [0, 0], text: "tie" };
-        }else if(players[player_1].option == room.problemas.respuestaCorrecta && players[player_2].option != room.problemas.respuestaCorrecta){
-            result = { score: [1, 0], text: "win" };
-        }else if(players[player_2].option == room.problemas.respuestaCorrecta && players[player_1].option != room.problemas.respuestaCorrecta){
-            result = { score: [0, 1], text: "win" };
-        }else {
-          result = { score: [0, 0], text: "tie" };
+          result = validateOptions("0 0");
+        } else if (
+          players[player_1].option == room.problemas.respuestaCorrecta
+        ) {
+          result = validateOptions("1 0");
+        } else if (
+          players[player_2].option == room.problemas.respuestaCorrecta
+        ) {
+          result = validateOptions("0 1");
+        } else {
+          result = validateOptions("0 0");
         }
         
 
-        console.log(result, ' desde result');
         room.players[player_1].score += result.score[0];
         room.players[player_2].score += result.score[1];
 
@@ -121,27 +115,10 @@ const Room = () => {
   const validateOptions = (value) => {
     switch (value) {
       case "0 1":
-        console.log("desde rock paper");
-        return { score: [0, 1], text: "lose" };
-      case "1 2":
-        console.log('desde "paper scissors');
-
-        return { score: [0, 1], text: "lose" };
-      case "2 0":
-        console.log("desde scissors rock");
-
         return { score: [0, 1], text: "lose" };
       case "1 0":
-        console.log("desde paper rock");
-        return { score: [1, 0], text: "win" };
-      case "2 1":
-        console.log("desde scissors paper");
-        return { score: [1, 0], text: "win" };
-      case "0 2":
-        console.log("desde rock scissors");
         return { score: [1, 0], text: "win" };
       default:
-        console.log("Empate");
         return { score: [0, 0], text: "tie" };
     }
   };
@@ -153,7 +130,7 @@ const Room = () => {
    */
   const performAnimation = async (text) => {
     const timer = (ms) => new Promise((res) => setTimeout(res, ms));
-    console.log("desde performAnimation");
+    console.log(text, "desde performAnimation");
     for (let i = 0; i <= 8; i++) {
       if (i === 7) {
         setResult({ rotate: 0, show: true, reset: false });
