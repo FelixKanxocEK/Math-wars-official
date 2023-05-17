@@ -19,7 +19,7 @@ const SocketContextProvider = ({ children }) => {
     setSocket(socket);
 
     socket.on("room:get", (payload) => {
-      console.log(payload);
+      console.log(payload, ' socketContext');
       setRoom(payload);
       setPlayers(Object.values(payload.players));
       setListQuestion(payload.problemas);
@@ -43,6 +43,11 @@ const SocketContextProvider = ({ children }) => {
         let pathname = "/result";
         if (pathname !== location.pathname) navigate(pathname);
       }
+    });
+
+    socket.on("room:setProblema", (data) => {
+      console.log(data, ' desde 111 room Index');
+      setRoom(data);
     });
   }, []);
 

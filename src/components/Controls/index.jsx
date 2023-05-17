@@ -7,6 +7,7 @@ import styles from "./styles.module.css";
 import movSound from "../../sound/mov.mp3";
 import { Howl, Howler } from "howler";
 import { MathJaxContext, MathJax } from "better-react-mathjax";
+import Latex from "react-latex";
 
 function Controls() {
   // Howler.autoUnlock = false;
@@ -24,9 +25,9 @@ function Controls() {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    console.log(room.problemas);
+    console.log(Object.values(JSON.parse(room.problemas.incisos)));
     setOptions(JSON.parse(room.problemas.incisos));
-  }, [])
+  }, [room.problemas.incisos])
 
   useEffect(() => {
     if (room.players[socket.id].optionLock) {
@@ -60,9 +61,9 @@ function Controls() {
         {options.map((inciso, key) => (
           <button
           key={key}
-          disabled={room.players[socket.id].optionLock}
+          disabled={Object.values(room.players)[1].option == key || Object.values(room.players)[0].option == key}
           className={
-            option === "rock"
+            option === key
               ? `${styles.option_btn} ${styles.option_btn_active}`
               : styles.option_btn
           }
