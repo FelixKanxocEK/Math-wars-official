@@ -7,6 +7,7 @@ import styles from "./styles.module.css";
 import movSound from "../../sound/mov.mp3";
 import { Howl, Howler } from "howler";
 import { MathJaxContext, MathJax } from "better-react-mathjax";
+import Latex from "react-latex";
 
 function Controls() {
   // Howler.autoUnlock = false;
@@ -24,9 +25,9 @@ function Controls() {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
-    console.log(room.problemas);
+    console.log(Object.values(JSON.parse(room.problemas.incisos)));
     setOptions(JSON.parse(room.problemas.incisos));
-  }, [])
+  }, [room.problemas.incisos])
 
   useEffect(() => {
     if (room.players[socket.id].optionLock) {
@@ -48,30 +49,33 @@ function Controls() {
     <div className={`${styles.container} gap-5`}>
       <div className={`${styles.container_problem} w-6/12 px-3 py-2 rounded-md `}>
         <p className="preview-mathjax">
-          <MathJaxContext>
+          <Latex>{`$${room.problemas.planteamiento}$`}</Latex>
+          {/* <MathJaxContext>
             <MathJax>
             {`\\(${room.problemas.planteamiento}\\)`}
 
             </MathJax>
-          </MathJaxContext>
+          </MathJaxContext> */}
         </p>
       </div>
       <div className="w-6/12 gap-3 flex">
         {options.map((inciso, key) => (
           <button
           key={key}
-          disabled={room.players[socket.id].optionLock}
+          disabled={Object.values(room.players)[1].option == key || Object.values(room.players)[0].option == key}
           className={
-            option === "rock"
+            option === key
               ? `${styles.option_btn} ${styles.option_btn_active}`
               : styles.option_btn
           }
           onClick={handleChange}
           // onPointerOver={soundMov}
           value={key}>
-              <MathJaxContext>
+              {/* <MathJaxContext>
                 <MathJax> {`\\(${inciso}\\)`} </MathJax>
-              </MathJaxContext>
+              </MathJaxContext> */}
+              <Latex strict>{`$${inciso}$`}</Latex>
+              {/* <Latex>{`$$${inciso}$$`}</Latex> */}
           </button>
         ))}
         {/* <button

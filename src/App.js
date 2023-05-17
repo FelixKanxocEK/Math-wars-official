@@ -43,6 +43,10 @@ const App = () => {
           element: <AgregarProblema />,
         },
         {
+          path: "editar-problema/:id",
+          element: <AgregarProblema />,
+        },
+        {
           path: "agregar-categoria",
           element: <AgregarCategoria />,
         },

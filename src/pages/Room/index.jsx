@@ -54,7 +54,7 @@ const Room = () => {
     reset: false,
   });
   const [resultText, setResultText] = useState("");
-  const { socket, room, player_1, player_2 } = useContext(SocketContext);
+  const { socket, room, setRoom, player_1, player_2 } = useContext(SocketContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -71,7 +71,6 @@ const Room = () => {
 
   useEffect(() => {
     const calculateResults = async () => {
-      console.log(room);
       const players = room?.players;
       if (
         players &&
@@ -103,8 +102,11 @@ const Room = () => {
         await performAnimation(result.text);
 
         room.players[player_1].optionLock = false;
+        room.players[player_1].option = null;
         room.players[player_2].optionLock = false;
+        room.players[player_2].option = null;
 
+        socket.emit("room:getProblema", room);
         socket.emit("room:update", room);
       }
     };
@@ -129,7 +131,6 @@ const Room = () => {
    */
   const performAnimation = async (text) => {
     const timer = (ms) => new Promise((res) => setTimeout(res, ms));
-    console.log(text, "desde performAnimation");
     for (let i = 0; i <= 8; i++) {
       if (i === 7) {
         setResult({ rotate: 0, show: true, reset: false });
