@@ -4,7 +4,7 @@ import logo from '../../images/logo-math-wars.png';
 
 const Header = () => {
   return (
-    <div className="w-full bg-blue-900 text-white p-4 flex justify-between items-center">
+    <div className="w-full bg-green-900 text-white p-4 flex justify-between items-center">
       <div className="w-full md:w-width_49">
         <img src={logo} alt="Logo math wars" width="100" />
       </div>

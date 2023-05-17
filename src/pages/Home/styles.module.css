@@ -30,10 +30,10 @@
 
 .rock_hand {
   position: absolute;
-  bottom: -60px;
-  left: -175px;
+  bottom: 10px;
+  left: 0px;
   width: 400px;
-  rotate: -50deg;
+  /* rotate: -50deg; */
   z-index: -1;
 }
 

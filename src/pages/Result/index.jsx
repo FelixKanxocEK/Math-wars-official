@@ -8,8 +8,8 @@ import win_board_img from "../../images/win_board.png";
 import lose_board_1_img from "../../images/lose_board_1.png";
 import lose_board_2_img from "../../images/lose_board_2.png";
 import lose_board_3_img from "../../images/lose_board_3.png";
-import movSound from "../../sound/mov.mp3";
-import buttonSound from "../../sound/button.mp3";
+import movSound from "../../sound/mov2.mp3";
+import buttonSound from "../../sound/button2.mp3";
 import { Howl, Howler } from "howler";
 import styles from "./styles.module.css";
 

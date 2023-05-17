@@ -4,7 +4,8 @@ import { SocketContext } from "../../context/SocketContext";
 // import paper_right_hand_img from "../../images/paper_right_hand.png";
 // import scissors_right_hand_img from "../../images/scissors_right_hand.png";
 import styles from "./styles.module.css";
-import movSound from "../../sound/mov.mp3";
+import movSound from "../../sound/mov2.mp3";
+import buttonSoound from "../../sound/button2.mp3"
 import { Howl, Howler } from "howler";
 import Latex from "react-latex";
 import { MathJaxContext, MathJax } from "better-react-mathjax";
@@ -20,6 +21,14 @@ function Controls() {
   const soundMov = () => {
     mov.play();
   };
+
+  var buttonS = new Howl({
+    src:[buttonSoound],
+    volume: 1
+  });
+
+  
+
   const [option, setOption] = useState("");
   const { socket, room, listquestions } = useContext(SocketContext);
   const [options, setOptions] = useState([]);

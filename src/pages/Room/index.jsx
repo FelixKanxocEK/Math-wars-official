@@ -9,7 +9,7 @@ import win_img from "../../images/win.png";
 import lose_img from "../../images/lose.png";
 import boom_img from "../../images/boom.png";
 import styles from "./styles.module.css";
-import scene from "../../images/resources/Scene3_Bg.jpeg";
+import scene from "../../images/resources/scene4-Bg.jpeg";
 // import fight from "../../music/fight1.ogg"
 // import music from "../../music/pista1.mp3";
 // import { Howl, Howler } from "howler";

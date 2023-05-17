@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import BgMain from "../images/resources/scene0-Bg.jpeg"
+import BgMain from "../images/resources/scene1-Bg.jpeg"
 import {Howl, Howler} from 'howler';
-import music from "../music/pista1.mp3";
+import music from "../music/fight1.ogg";
 
 const GameLayout = () => {
 
