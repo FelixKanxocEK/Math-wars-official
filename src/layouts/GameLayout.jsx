@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import BgMain from "../images/resources/scene0-Bg.jpeg"
+import {Howl, Howler} from 'howler';
+import music from "../music/pista1.mp3";
 
 const GameLayout = () => {
+
+  Howler.autoUnlock = false;
+  Howler.autoSuspend = false;
+  
+  var track1 = new Howl({
+     src: [music],
+     loop: true,
+     volume: 0.3,
+    });
+  
+    const [avoidExtraCall, setAvoidExtraCall] = useState(false);
+
+    const handleClick = () =>{
+      if(!avoidExtraCall){
+        
+          track1.play();
+          setAvoidExtraCall(true);
+
+        
+      }
+    }
   return (
     <>
-      <main className="main">
+      <main onClick={handleClick} className="main">
         <img
           src={BgMain}
           className="background_img"

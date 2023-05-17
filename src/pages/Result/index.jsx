@@ -8,9 +8,31 @@ import win_board_img from "../../images/win_board.png";
 import lose_board_1_img from "../../images/lose_board_1.png";
 import lose_board_2_img from "../../images/lose_board_2.png";
 import lose_board_3_img from "../../images/lose_board_3.png";
+import movSound from "../../sound/mov.mp3";
+import buttonSound from "../../sound/button.mp3";
+import { Howl, Howler } from "howler";
 import styles from "./styles.module.css";
 
 const Result = () => {
+  Howler.autoUnlock = false;
+  Howler.autoSuspend = false;
+  var mov = new Howl({
+    src:[movSound],
+    volume: 1
+  })
+
+  const soundMov = () =>{
+    mov.play();
+  }
+
+  var buttonS = new Howl({
+    src:[buttonSound],
+    volume: 1
+  })
+
+  const soundButton = () =>{
+    buttonS.play();
+  }
   const [boardImg, setBoardImg] = useState("");
   const { room, player_1 } = useContext(SocketContext);
 
@@ -43,9 +65,13 @@ const Result = () => {
         className={styles.scissors_hand}
       />
       <img src={boardImg} alt="boardImg" className={styles.board_img} />
-      <div className={styles.btn_container}>
-        <Button name="play with friend" type="friend" />
-        <Button name="Play with stranger" type="stranger" />
+      <div  className={styles.btn_container}>
+        <div onPointerOver={soundMov}  onClick={soundButton}>
+          <Button name="play with friend" type="friend" />
+        </div>
+        <div onPointerOver={soundMov} onClick={soundButton}>
+          <Button name="Play with stranger" type="stranger" />
+        </div>
       </div>
     </div>
   );

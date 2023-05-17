@@ -9,11 +9,45 @@ import win_img from "../../images/win.png";
 import lose_img from "../../images/lose.png";
 import boom_img from "../../images/boom.png";
 import styles from "./styles.module.css";
-import scene from "../../images/resources/Scene3_Bg.jpeg"
-
-
+import scene from "../../images/resources/Scene3_Bg.jpeg";
+// import fight from "../../music/fight1.ogg"
+// import music from "../../music/pista1.mp3";
+// import { Howl, Howler } from "howler";
 
 const Room = () => {
+  // Howler.autoUnlock = false;
+  // Howler.autoSuspend = false;
+
+  // var fightTrack = new Howl({
+  //   src:[fight],
+  //   loop: true,
+  //   volume: 0.4,
+  // })
+
+  // var track1 = new Howl({
+  //   src:[music],
+  //   autoplay: false,
+  //   play:false
+  // })
+
+  // const [avoidExtraCall, setAvoidExtraCall] = useState(false);
+
+  //   const handleClick = () =>{
+  //     if(!avoidExtraCall){
+
+  //       if(track1.playing){
+  //         track1.stop();
+  //         fightTrack.play();
+  //         }
+  //         setAvoidExtraCall(true);
+
+  //     }
+  //   }
+
+  // var pistolSound = new Howl({
+  //   src:[pistol],
+  //   volume: 0.8
+  // })
   const [result, setResult] = useState({
     rotate: 0,
     show: false,
@@ -37,6 +71,7 @@ const Room = () => {
 
   useEffect(() => {
     const calculateResults = async () => {
+      console.log(room);
       const players = room?.players;
       if (
         players &&
@@ -44,10 +79,22 @@ const Room = () => {
         players[player_2]?.optionLock === true
       ) {
         let result = { score: [0, 0], text: "tie" };
-        if (players[player_1].option !== players[player_2].option) {
-          result = validateOptions(
-            `${players[player_1].option} ${players[player_2].option}`
-          );
+
+        if (
+          players[player_1].option == room.problemas.respuestaCorrecta &&
+          players[player_2].option == room.problemas.respuestaCorrecta
+        ) {
+          result = validateOptions("0 0");
+        } else if (
+          players[player_1].option == room.problemas.respuestaCorrecta
+        ) {
+          result = validateOptions("1 0");
+        } else if (
+          players[player_2].option == room.problemas.respuestaCorrecta
+        ) {
+          result = validateOptions("0 1");
+        } else {
+          result = validateOptions("0 0");
         }
 
         room.players[player_1].score += result.score[0];
@@ -66,26 +113,23 @@ const Room = () => {
 
   const validateOptions = (value) => {
     switch (value) {
-      case "rock paper":
+      case "0 1":
         return { score: [0, 1], text: "lose" };
-      case "paper scissors":
-        return { score: [0, 1], text: "lose" };
-      case "scissors rock":
-        return { score: [0, 1], text: "lose" };
-      case "paper rock":
-        return { score: [1, 0], text: "win" };
-      case "scissors paper":
-        return { score: [1, 0], text: "win" };
-      case "rock scissors":
+      case "1 0":
         return { score: [1, 0], text: "win" };
       default:
         return { score: [0, 0], text: "tie" };
     }
   };
 
+  /**
+   * The function performs an animation by changing the state of an object with different properties
+   * and delays using async/await and a timer function.
+   * @returns The function `performAnimation` is returning a resolved Promise.
+   */
   const performAnimation = async (text) => {
     const timer = (ms) => new Promise((res) => setTimeout(res, ms));
-
+    console.log(text, "desde performAnimation");
     for (let i = 0; i <= 8; i++) {
       if (i === 7) {
         setResult({ rotate: 0, show: true, reset: false });
@@ -109,24 +153,22 @@ const Room = () => {
   return (
     <>
       {/* <Stage width={500} height={500} > */}
-        <img src={scene} alt="vs" className={styles.background_img} />
-        {/* <Example/> */}
-        <PlayerOne result={result} />
-        <PlayerTwo result={result} />
-        {player_2 && <Controls />}
-        {resultText === "win" && (
-          <img src={win_img} alt="win_img" className={styles.win_img} />
-        )}
-        {/* <Example /> */}
-        {resultText === "lose" && (
-          <img src={lose_img} alt="lose_img" className={styles.lose_img} />
-        )}
-        {resultText === "tie" && (
-          <img src={boom_img} alt="boom_img" className={styles.boom_img} />
-        )}
+      <img src={scene} alt="vs" className={styles.background_img} />
+      {/* <Example/> */}
+      <PlayerOne result={result} />
+      <PlayerTwo result={result} />
+      {player_2 && <Controls />}
+      {resultText === "win" && (
+        <img src={win_img} alt="win_img" className={styles.win_img} />
+      )}
+      {/* <Example /> */}
+      {resultText === "lose" && (
+        <img src={lose_img} alt="lose_img" className={styles.lose_img} />
+      )}
+      {resultText === "tie" && (
+        <img src={boom_img} alt="boom_img" className={styles.boom_img} />
+      )}
       {/* </Stage> */}
-
-
     </>
   );
 };
