@@ -3,6 +3,7 @@ import Header from "../../components/Panel/Header";
 import Formulario from "../../components/Panel/Formulario";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useParams } from "react-router-dom";
 
 const AgregarProblema = () => {
   const [options, setOptions] = useState([]);
@@ -15,7 +16,11 @@ const AgregarProblema = () => {
 
   const [ecuacion, setEcuacion] = useState("");
   const [categories, setCategories] = useState([]);
-  const [category, setCategory] = useState({value: "", error: ""});
+  const [category, setCategory] = useState({ value: "", error: "" });
+
+  /** --- AQUI SE OBTIENE EL ID DEL LINK --- **/
+  const { id } = useParams();
+  console.log(id);
 
   useEffect(() => {
     getCategories();
@@ -51,7 +56,7 @@ const AgregarProblema = () => {
           problem: problem.value,
           answers: options,
           correct: correctAnswer.value,
-          id_categoria: category.value
+          id_categoria: category.value,
         }
       );
       setLoading(false);

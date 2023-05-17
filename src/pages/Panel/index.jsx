@@ -5,7 +5,8 @@ import { convertCharCode } from "../../helpers/ResetOptions";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import { Link, useParams } from "react-router-dom";
 
 const Panel = () => {
   const [problemas, setProblemas] = useState([]);
@@ -173,6 +174,13 @@ const Panel = () => {
                       </MathJaxContext>
                     </span>
                   </div>
+                  <div>
+                  <Link
+                      to={`/panel/editar-problema/${problema.id}`}
+                      className="hover:cursor-pointer text-blue-700 text-lg absolute top-0 right-10"
+                    >
+                      <ModeEditIcon />
+                    </Link>
                   <button
                     type="button"
                     className="hover:cursor-pointer text-red-700 text-lg absolute top-0 right-0"
@@ -180,6 +188,8 @@ const Panel = () => {
                   >
                     <DeleteOutlineIcon />
                   </button>
+
+                  </div>
                 </div>
                 <div className="w-full md:flex gap-2 items-center justify-between mt-3 flex-wrap">
                   {problema.opciones.map((opcion, key) => (
