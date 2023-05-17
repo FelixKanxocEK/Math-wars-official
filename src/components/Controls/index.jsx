@@ -49,12 +49,13 @@ function Controls() {
     <div className={`${styles.container} gap-5`}>
       <div className={`${styles.container_problem} w-6/12 px-3 py-2 rounded-md `}>
         <p className="preview-mathjax">
-          <MathJaxContext>
+          <Latex>{`$${room.problemas.planteamiento}$`}</Latex>
+          {/* <MathJaxContext>
             <MathJax>
             {`\\(${room.problemas.planteamiento}\\)`}
 
             </MathJax>
-          </MathJaxContext>
+          </MathJaxContext> */}
         </p>
       </div>
       <div className="w-6/12 gap-3 flex">
@@ -70,9 +71,11 @@ function Controls() {
           onClick={handleChange}
           // onPointerOver={soundMov}
           value={key}>
-              <MathJaxContext>
+              {/* <MathJaxContext>
                 <MathJax> {`\\(${inciso}\\)`} </MathJax>
-              </MathJaxContext>
+              </MathJaxContext> */}
+              <Latex strict>{`$${inciso}$`}</Latex>
+              {/* <Latex>{`$$${inciso}$$`}</Latex> */}
           </button>
         ))}
         {/* <button

@@ -27,3 +27,7 @@ a {
   --purple: #955cd9;
   --green: #01a049;
 }
+
+* {
+  border-color: black;
+}
