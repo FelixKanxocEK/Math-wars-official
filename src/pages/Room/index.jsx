@@ -95,6 +95,7 @@ const Room = () => {
         } else {
           result = validateOptions("0 0");
         }
+        
 
         room.players[player_1].score += result.score[0];
         room.players[player_2].score += result.score[1];
