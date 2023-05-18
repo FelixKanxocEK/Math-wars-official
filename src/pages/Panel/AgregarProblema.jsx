@@ -3,7 +3,7 @@ import Header from "../../components/Panel/Header";
 import Formulario from "../../components/Panel/Formulario";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const AgregarProblema = () => {
   const [options, setOptions] = useState([]);
@@ -17,10 +17,58 @@ const AgregarProblema = () => {
   const [ecuacion, setEcuacion] = useState("");
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState({ value: "", error: "" });
+  const [post, setPost] = React.useState(null);
 
   /** --- AQUI SE OBTIENE EL ID DEL LINK --- **/
   const { id } = useParams();
   console.log(id);
+ 
+    
+  
+    useEffect(()=>{
+      if(id){
+        //  getQuestion();
+        question();
+        
+      }
+      
+    }, []);
+
+    // function getQuestion()  {
+    //   axios.get(`${process.env.REACT_APP_SOCKET_URL}/panel/editar-problema/${id}`).then((response)=>{
+    //     console.log(response);
+    //     // setOptions(response.data);
+    //     // setErrorOptions(response.data);
+    //     // setProblem(response.data);
+    //     // setPreviewImage(response.data);
+    //     // setCorrectAnswer(response.data);
+    //     // setEcuacion(response.data);
+    //     // setCategories(response.data);
+    //     // setCategory(response.data);
+
+        
+    //   });
+    // }
+    
+
+    const question = async () =>{
+      try{
+        const response =  await axios.get(`${process.env.REACT_APP_SOCKET_URL}/panel/editar-problema/${id}`);
+        console.log(response.data);
+
+        document.querySelector('#problem').value = `${response.data.problem}`;
+        document.querySelector('#correct').value = `${response.data.correct}`;
+        document.querySelector('#category').value = `${response.data.category}`;
+        
+
+         
+        
+      }catch(error){
+        console.log(error);
+      }
+      
+
+    }
 
   useEffect(() => {
     getCategories();
