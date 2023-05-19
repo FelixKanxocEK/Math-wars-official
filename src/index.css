@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@font-face {
+  font-family: 'pixelart';
+  src: url('./assets/fonts/pixel_art/pixelart.ttf');
+}
 
+@font-face {
+  font-family: '8bitOperatorPlus-Regular';
+  src: url('./assets/fonts/8-bit-operator/8bitOperatorPlus-Regular.ttf');
+}
 
 @tailwind base;
 @tailwind components;
@@ -30,6 +38,14 @@ a {
 
 * {
   border-color: black;
+}
+
+.pixel-art {
+  font-family: 'pixelart';
+}
+
+.bitOperatorPlus-Regular{
+  font-family: '8bitOperatorPlus-Regular';
 }
 
 /**

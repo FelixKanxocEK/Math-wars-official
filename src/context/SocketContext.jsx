@@ -3,7 +3,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { io } from "socket.io-client";
 
 const SocketContext = createContext();
-
 const SocketContextProvider = ({ children }) => {
   const [socket, setSocket] = useState({});
   const [room, setRoom] = useState({});
@@ -13,13 +12,14 @@ const SocketContextProvider = ({ children }) => {
   const location = useLocation();
   const [players, setPlayers] = useState([]);
   const [listQuestions, setListQuestion] = useState([]);
+  const [tiempo, setTiempo] = useState(180);
 
   useEffect(() => {
     const socket = io(process.env.REACT_APP_SOCKET_URL);
     setSocket(socket);
 
     socket.on("room:get", (payload) => {
-      console.log(payload, ' socketContext');
+      console.log(payload, " socketContext");
       setRoom(payload);
       setPlayers(Object.values(payload.players));
       setListQuestion(payload.problemas);
@@ -43,10 +43,14 @@ const SocketContextProvider = ({ children }) => {
         let pathname = "/result";
         if (pathname !== location.pathname) navigate(pathname);
       }
+      if(Object.values(payload.players)[0].optionLock && Object.values(payload.players)[1].optionLock){
+        console.log('Cambiando tiempo...');
+      }
     });
 
+
     socket.on("room:setProblema", (data) => {
-      console.log(data, ' desde 111 room Index');
+      console.log(data, " desde 111 room Index");
       setRoom(data);
     });
   }, []);
@@ -62,6 +66,8 @@ const SocketContextProvider = ({ children }) => {
         navigate,
         players,
         listQuestions,
+        tiempo,
+        setTiempo
       }}
     >
       {children}
