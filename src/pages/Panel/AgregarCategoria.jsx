@@ -120,10 +120,10 @@ const AgregarCategoria = () => {
       <Header />
       <div className="flex justify-center items-center">
         {categories.length > 0 ? (
-          <div className="border-2 rounded-md shadow-md w-1/2 mt-10 py-5 px-4 bg-white">
+          <div className="border-2 rounded-md shadow-md w-1/2 mt-10 py-5 px-4 bg-white border-gray-200">
             <h2 className="text-lg font-bold text-center">Lista Categorías</h2>
             {categories.map((category, key) => (
-              <div className="w-full flex justify-between items-center mr-4 p-2 border mb-2 rounded-md shadow" key={key}>
+              <div className="w-full flex justify-between items-center mr-4 p-2 border mb-2 rounded-md shadow border-gray-200" key={key}>
                 <div className="flex">
                   <span className="font-bold mr-2">{key + 1}.-</span>
                   <p>{category.nombre}</p>
@@ -144,7 +144,7 @@ const AgregarCategoria = () => {
       </div>
       <div className="flex justify-center items-center">
         <form
-          className="border-2 rounded-md shadow-md w-1/2 my-10 py-5 px-4 bg-white"
+          className="border-2 rounded-md shadow-md w-1/2 my-10 py-5 px-4 bg-white border-gray-200"
           onSubmit={(e) => handleSubmit(e)}
         >
           <div className="flex flex-col">
@@ -157,7 +157,7 @@ const AgregarCategoria = () => {
                 name="problem"
                 type="text"
                 placeholder="Ej. Quimica"
-                className="w-full border-2 py-2 px-1 rounded-md outline-none focus:border-blue-500"
+                className="w-full border-2 py-2 px-1 rounded-md outline-none focus:border-blue-500 border-gray-200"
                 value={category.value}
                 onChange={(e) =>
                   setCategory({ value: e.target.value, error: "" })

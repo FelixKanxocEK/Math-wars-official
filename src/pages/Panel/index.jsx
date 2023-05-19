@@ -137,7 +137,7 @@ const Panel = () => {
             <select
               name="category"
               id="category"
-              className="border-2 py-2 px-1 mt-2 rounded-md outline-none focus:border-blue-500"
+              className="border-2 py-2 px-1 mt-2 rounded-md outline-none focus:border-blue-500 border-gray-200"
               value={filterCategory}
               onChange={(e) => setFilterCategory(e.target.value)}
             >
@@ -150,7 +150,7 @@ const Panel = () => {
             </select>
           </div>
           <div>
-            <Link className="border shadow bg-green-600 hover:bg-green-700 transition-all duration-300 py-2 px-3 rounded-md text-white" to="/panel/seleccionar-categoria-juego">Seleccionar Categoria a jugar</Link>
+            <Link className="border shadow bg-green-600 hover:bg-green-700 transition-all duration-300 py-2 px-3 rounded-md text-white border-gray-200" to="/panel/seleccionar-categoria-juego">Seleccionar Categoria a jugar</Link>
           </div>
         </div>
         <div className="flex flex-wrap mx-auto gap-3 my-3">
@@ -158,7 +158,7 @@ const Panel = () => {
             <>
             {problemas.map((problema, key) => (
               <div
-                className="w-11/12 md:w-5/12 px-6 py-4 mb-5 mx-auto bg-white border rounded-md shadow-md"
+                className="w-11/12 md:w-5/12 px-6 py-4 mb-5 mx-auto bg-white border rounded-md shadow-md border-gray-200"
                 key={key}
               >
                 <div className="flex justify-between flex-col relative">
