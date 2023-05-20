@@ -9,7 +9,7 @@ import win_img from "../../images/win-min.png";
 import lose_img from "../../images/lose-min.png";
 import boom_img from "../../images/boom-min.png";
 import styles from "./styles.module.css";
-import scene from "../../images/resources/Scene3_Bg-min.jpeg";
+import scene from "../../images/resources/scene4-Bg-min.jpeg";
 
 const Room = () => {
   const [result, setResult] = useState({

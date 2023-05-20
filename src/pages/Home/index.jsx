@@ -4,7 +4,8 @@ import logo from "../../images/resources/logo-math-wars-5-min.png"
 import rock_left_hand_img from "../../images/rock_left_hand-min.png";
 import styles from "./styles.module.css";
 import {Howl} from 'howler';
-import movSound from "../../sound/mov.mp3";
+import buttonSound from "../../sound/button2.mp3"
+import movSound from "../../sound/mov2.mp3";
 
 
 

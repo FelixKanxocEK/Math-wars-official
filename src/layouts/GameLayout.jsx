@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import BgMain from "../images/resources/scene0-Bg-min.jpeg"
+import BgMain from "../images/resources/scene1-Bg-min.jpeg"
 import {Howl, Howler} from 'howler';
 import music from "../music/fight1.ogg";
 
