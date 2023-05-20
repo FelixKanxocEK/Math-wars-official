@@ -114,7 +114,7 @@
   /* margin-top: 10%; */
   object-fit: inherit;
   /* background: url(../../images/characters/eri-d.png); */
-  background: url(../../images/Character-VerP/Derrota/Derrota.gif);
+  background: url(../../images/Character-VerP/Derrota/Derrota-min.gif);
   /* animation: animated 2s steps(9) infinite; */
   scale: .7;
   transform: rotateY(-160deg);
@@ -139,7 +139,7 @@
   /* margin-top: 10%; */
   object-fit: inherit;
   /* background: url(../../images/characters/eri-eat.png); */
-  background: url(../../images/Character-VerP/Caminando/Caminando.gif);
+  background: url(../../images/Character-VerP/Caminando/Caminando-min.gif);
   /* animation: animatex 2s steps(12) infinite; */
   scale: .7;
   transform: rotateY(-160deg);
@@ -163,7 +163,7 @@
   /* margin-top: 10%; */
   object-fit: inherit;
   /* background: url(../../images/characters/eri-attack.png); */
-  background: url(../../images/Character-VerP/Ataque/Ataque.gif);
+  background: url(../../images/Character-VerP/Ataque/Ataque-min.gif);
   /* animation: animate 2s steps(14) infinite; */
   scale: .7;
   transform: rotateY(-160deg);

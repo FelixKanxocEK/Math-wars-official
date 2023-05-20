@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect, useRef } from "react";
 import Button from "../../components/Button";
-import logo from "../../images/resources/logo-math-wars-5.png"
-import rock_left_hand_img from "../../images/rock_left_hand.png";
+import logo from "../../images/resources/logo-math-wars-5-min.png"
+import rock_left_hand_img from "../../images/rock_left_hand-min.png";
 import styles from "./styles.module.css";
 import {Howl} from 'howler';
 import movSound from "../../sound/mov.mp3";

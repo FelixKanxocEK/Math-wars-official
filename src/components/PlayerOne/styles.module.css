@@ -76,7 +76,7 @@
   /* margin-top: 10%; */
   object-fit: inherit;
   /* background: url(../../images/characters/ken_death.png); */
-  background: url(../../images/Character-VerP/Derrota/Derrota.gif);
+  background: url(../../images/Character-VerP/Derrota/Derrota-min.gif);
   /* animation: animate 1s steps(8) infinite; */
   scale: .7;
   /* transform: rotateY(-180deg); */
@@ -103,7 +103,7 @@
   /* margin-top: 10%; */
   object-fit: inherit;
   /* background: url(../../images/characters/ken_run.png); */
-  background: url(../../images/Character-VerP/Caminando/Caminando.gif);
+  background: url(../../images/Character-VerP/Caminando/Caminando-min.gif);
   /* animation: animatex 1s steps(9) infinite; */
   scale: .7;
   /* transform: rotateY(-180deg); */
@@ -131,7 +131,7 @@
   /* margin-top: 10%; */
   object-fit: inherit;
   /* background: url(../../images/characters/ken-attack.png); */
-  background: url(../../images/Character-VerP/Ataque/Ataque.gif);
+  background: url(../../images/Character-VerP/Ataque/Ataque-min.gif);
   /* animation: animated 1s steps(8) infinite; */
   scale: .7;
   /* transform: rotateY(-180deg); */
