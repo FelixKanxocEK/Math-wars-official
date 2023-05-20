@@ -5,56 +5,21 @@ import PlayerOne from "../../components/PlayerOne";
 import PlayerTwo from "../../components/PlayerTwo";
 import Controls from "../../components/Controls";
 // import vs_img from "../../images/vs.jpg";
-import win_img from "../../images/win.png";
-import lose_img from "../../images/lose.png";
-import boom_img from "../../images/boom.png";
+import win_img from "../../images/win-min.png";
+import lose_img from "../../images/lose-min.png";
+import boom_img from "../../images/boom-min.png";
 import styles from "./styles.module.css";
-import scene from "../../images/resources/scene4-Bg.jpeg";
-// import fight from "../../music/fight1.ogg"
-// import music from "../../music/pista1.mp3";
-// import { Howl, Howler } from "howler";
+import scene from "../../images/resources/Scene3_Bg-min.jpeg";
 
 const Room = () => {
-  // Howler.autoUnlock = false;
-  // Howler.autoSuspend = false;
-
-  // var fightTrack = new Howl({
-  //   src:[fight],
-  //   loop: true,
-  //   volume: 0.4,
-  // })
-
-  // var track1 = new Howl({
-  //   src:[music],
-  //   autoplay: false,
-  //   play:false
-  // })
-
-  // const [avoidExtraCall, setAvoidExtraCall] = useState(false);
-
-  //   const handleClick = () =>{
-  //     if(!avoidExtraCall){
-
-  //       if(track1.playing){
-  //         track1.stop();
-  //         fightTrack.play();
-  //         }
-  //         setAvoidExtraCall(true);
-
-  //     }
-  //   }
-
-  // var pistolSound = new Howl({
-  //   src:[pistol],
-  //   volume: 0.8
-  // })
   const [result, setResult] = useState({
     rotate: 0,
     show: false,
     reset: false,
   });
   const [resultText, setResultText] = useState("");
-  const { socket, room, player_1, player_2 } = useContext(SocketContext);
+  const { socket, room, setRoom, player_1, player_2, tiempo, setTiempo } =
+    useContext(SocketContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -79,39 +44,33 @@ const Room = () => {
       ) {
         let result = { score: [0, 0], text: "tie" };
 
-        // if (players[player_1].option !== players[player_2].option) {
-        //   result = validateOptions(
-        //     `${players[player_1].option} ${players[player_2].option}`
-        //   );
-        // }
-
-        // if(players[player_1].option == room.problemas.respuestaCorrecta && players[player_2].option == room.problemas.respuestaCorrecta) {
-          
-        // }
-
         if (
           players[player_1].option == room.problemas.respuestaCorrecta &&
           players[player_2].option == room.problemas.respuestaCorrecta
         ) {
-          result = { score: [0, 0], text: "tie" };
-        }else if(players[player_1].option == room.problemas.respuestaCorrecta && players[player_2].option != room.problemas.respuestaCorrecta){
-            result = { score: [1, 0], text: "win" };
-        }else if(players[player_2].option == room.problemas.respuestaCorrecta && players[player_1].option != room.problemas.respuestaCorrecta){
-            result = { score: [0, 1], text: "win" };
-        }else {
-          result = { score: [0, 0], text: "tie" };
+          result = validateOptions("0 0");
+        } else if (
+          players[player_1].option == room.problemas.respuestaCorrecta
+        ) {
+          result = validateOptions("1 0");
+        } else if (
+          players[player_2].option == room.problemas.respuestaCorrecta
+        ) {
+          result = validateOptions("0 1");
+        } else {
+          result = validateOptions("0 0");
         }
-        
 
-        console.log(result, ' desde result');
         room.players[player_1].score += result.score[0];
         room.players[player_2].score += result.score[1];
 
         await performAnimation(result.text);
 
         room.players[player_1].optionLock = false;
+        room.players[player_1].option = null;
         room.players[player_2].optionLock = false;
-
+        room.players[player_2].option = null;
+        socket.emit("room:getProblema", room);
         socket.emit("room:update", room);
       }
     };
@@ -121,27 +80,10 @@ const Room = () => {
   const validateOptions = (value) => {
     switch (value) {
       case "0 1":
-        console.log("desde rock paper");
-        return { score: [0, 1], text: "lose" };
-      case "1 2":
-        console.log('desde "paper scissors');
-
-        return { score: [0, 1], text: "lose" };
-      case "2 0":
-        console.log("desde scissors rock");
-
         return { score: [0, 1], text: "lose" };
       case "1 0":
-        console.log("desde paper rock");
-        return { score: [1, 0], text: "win" };
-      case "2 1":
-        console.log("desde scissors paper");
-        return { score: [1, 0], text: "win" };
-      case "0 2":
-        console.log("desde rock scissors");
         return { score: [1, 0], text: "win" };
       default:
-        console.log("Empate");
         return { score: [0, 0], text: "tie" };
     }
   };
@@ -153,20 +95,23 @@ const Room = () => {
    */
   const performAnimation = async (text) => {
     const timer = (ms) => new Promise((res) => setTimeout(res, ms));
-    console.log("desde performAnimation");
     for (let i = 0; i <= 8; i++) {
       if (i === 7) {
         setResult({ rotate: 0, show: true, reset: false });
         setResultText(text);
+        setTiempo(180);
         await timer(2000);
       } else if (i % 2 === 0 && i < 7) {
         setResult({ rotate: 10, show: false, reset: false });
+        setTiempo(180);
         await timer(200);
       } else if (i === 8) {
         setResult({ rotate: 0, show: false, reset: true });
+        setTiempo(180);
         setResultText("");
       } else {
         setResult({ rotate: -10, show: false, reset: false });
+        setTiempo(180);
         await timer(200);
       }
     }

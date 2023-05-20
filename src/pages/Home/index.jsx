@@ -1,16 +1,10 @@
-import Button from "../../components/Button";
-// import logo_img from "../../images/logo.png";
-import logo from "../../images/resources/logo-math-wars-5.svg"
-import scissors_right_hand_img from "../../images/scissors_right_hand.png";
-import rock_left_hand_img from "../../images/rock_left_hand.png";
-import pi from "../../images/pi.png"
-import styles from "./styles.module.css";
-import ReactHowler from 'react-howler';
-import {Howl, Howler} from 'howler';
 import React, { useState, useCallback, useEffect, useRef } from "react";
-// import music from "../../music/pista1.mp3";
-import movSound from "../../sound/mov2.mp3";
-import buttonSound from "../../sound/button2.mp3";
+import Button from "../../components/Button";
+import logo from "../../images/resources/logo-math-wars-5-min.png"
+import rock_left_hand_img from "../../images/rock_left_hand-min.png";
+import styles from "./styles.module.css";
+import {Howl} from 'howler';
+import movSound from "../../sound/mov.mp3";
 
 
 
