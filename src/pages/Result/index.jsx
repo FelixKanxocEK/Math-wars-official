@@ -8,8 +8,12 @@ import win_board_img from "../../images/win_board.png";
 import lose_board_1_img from "../../images/lose_board_1.png";
 import lose_board_2_img from "../../images/lose_board_2.png";
 import lose_board_3_img from "../../images/lose_board_3.png";
+import defeat_img from "../../images/Character-VerP/Derrota/Derrota.gif"
+import stand_img from "../../images/Character-VerP/Parado/Parado.gif"
 import movSound from "../../sound/mov.mp3";
 import buttonSound from "../../sound/button.mp3";
+import winner from "../../sound/winner.mp3"
+import looser from "../../sound/looser.mp3";
 import { Howl, Howler } from "howler";
 import styles from "./styles.module.css";
 
@@ -33,16 +37,41 @@ const Result = () => {
   const soundButton = () =>{
     buttonS.play();
   }
+
+  var win = new Howl({
+    src:[winner],
+    volume: 1
+  })
+
+  var loose = new Howl({
+    src:[looser],
+    volume: 1
+  })
+
+  
   const [boardImg, setBoardImg] = useState("");
+
   const { room, player_1 } = useContext(SocketContext);
 
   useEffect(() => {
     let score = room.players[player_1].score;
 
-    if (score === 3) setBoardImg(win_board_img);
-    else if (score === 2) setBoardImg(lose_board_2_img);
-    else if (score === 1) setBoardImg(lose_board_1_img);
-    else setBoardImg(lose_board_3_img);
+    if (score === 3) {
+      setBoardImg(win_board_img);
+      win.play();
+    }
+    else if (score === 2){
+      setBoardImg(lose_board_2_img);
+      loose.play();
+    } 
+    else if (score === 1){
+      setBoardImg(lose_board_1_img);
+      loose.play();
+    } 
+    else{
+      setBoardImg(lose_board_3_img);
+      loose.play();
+    } 
   }, []);
 
   return (
@@ -66,13 +95,13 @@ const Result = () => {
       />
       <img src={boardImg} alt="boardImg" className={styles.board_img} />
       <div  className={styles.btn_container}>
-        <div onPointerOver={soundMov}  onClick={soundButton}>
+        <div onPointerOver={soundMov}  onClick={soundButton} className="mt-0">
           <Button name="play with friend" type="friend" />
         </div>
-        <div onPointerOver={soundMov} onClick={soundButton}>
-          <Button name="Play with stranger" type="stranger" />
-        </div>
+        {boardImg === win_board_img ? (<img className="my-16" src={stand_img}/>) : (<img className="my-16" src={defeat_img}/>)}
+        
       </div>
+     
     </div>
   );
 };
