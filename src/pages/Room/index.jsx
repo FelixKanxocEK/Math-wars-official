@@ -124,8 +124,8 @@ const Room = () => {
       {/* <Stage width={500} height={500} > */}
       <img src={scene} alt="vs" className={styles.background_img} />
       {/* <Example/> */}
-      <PlayerOne result={result} />
-      <PlayerTwo result={result} />
+      <PlayerOne result={result} resultText={resultText} />
+      <PlayerTwo result={result} resultText={resultText} />
       {player_2 && <Controls />}
       {resultText === "win" && (
         <img src={win_img} alt="win_img" className={styles.win_img} />

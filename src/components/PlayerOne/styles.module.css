@@ -68,83 +68,36 @@
 
 .ken_death{
   position: absolute;
-  bottom: 30%;
-  left: 15%;
-  transform: translate(-60%, 30%);
-  width: calc(356px);
+  bottom: 10%;
+  left: 12%;
+  width: 100%;
   height: calc(400px);
-  /* margin-top: 10%; */
   object-fit: inherit;
-  /* background: url(../../images/characters/ken_death.png); */
   background: url(../../images/Character-VerP/Derrota/Derrota.gif);
-  /* animation: animate 1s steps(8) infinite; */
+  background-repeat: no-repeat;
   scale: .7;
-  /* transform: rotateY(-180deg); */
-  border: none;
 }
-/* 
-@keyframes animate {
-  from {
-    background-position-x: 0;
-  }
-
-  to {
-    background-position-x: 920px;
-  }
-} */
 
 .ken_run{
   position: absolute;
-  bottom: 30%;
-  left: 15%;
-  transform: translate(-60%, 30%);
-  width: calc(440px);
+  bottom: 20%;
+  left: 5%;
+  width: 100%;
   height: calc(300px);
-  /* margin-top: 10%; */
   object-fit: inherit;
-  /* background: url(../../images/characters/ken_run.png); */
   background: url(../../images/Character-VerP/Caminando/Caminando.gif);
-  /* animation: animatex 1s steps(9) infinite; */
+  background-repeat: no-repeat;
   scale: .7;
-  /* transform: rotateY(-180deg); */
   border: none;
-
-  
 }
-/* @keyframes animatex {
-  from {
-    background-position-x: 0;
-  }
-
-  to {
-    background-position-x: -1305px;
-  }
-} */
 
 .ken{
   position: absolute;
-  bottom: 30%;
-  left: 15%;
-  transform: translate(-60%, 30%);
-  width: calc(1066px);
+  bottom: 11%;
+  left: 3%;
+  width: 100%;
   height: calc(400px);
-  /* margin-top: 10%; */
-  object-fit: inherit;
-  /* background: url(../../images/characters/ken-attack.png); */
   background: url(../../images/Character-VerP/Ataque/Ataque.gif);
-  /* animation: animated 1s steps(8) infinite; */
+  background-repeat: no-repeat;
   scale: .7;
-  /* transform: rotateY(-180deg); */
-  border: none;
 }
-
-/* @keyframes animated {
-  from {
-    background-position-x: 0;
-  }
-
-  to {
-    background-position-x: 1159px;
-  }
-
-} */

@@ -106,73 +106,39 @@
 
 .eri_death{
   position: absolute;
-  bottom: 20%;
-  right: 5%;
-  /* transform: translate(-50%, -50%); */
-  width: calc(356px);
+  bottom: 10%;
+  right: 12%;
+  width: 100%;
   height: calc(400px);
-  /* margin-top: 10%; */
   object-fit: inherit;
-  /* background: url(../../images/characters/eri-d.png); */
   background: url(../../images/Character-VerP/Derrota/Derrota.gif);
-  /* animation: animated 2s steps(9) infinite; */
+  background-repeat: no-repeat;
   scale: .7;
   transform: rotateY(-160deg);
 }
-
-/* @keyframes animated {
-  from{
-    background-position-x: 0;
-  }
-  to{
-    background-position-x: 990px;
-  }
-} */
 
 .eri_eat{
   position: absolute;
   bottom: 20%;
   right: 5%;
-  /* transform: translate(70%, 30%); */
-  width: calc(440px);
+  width: 100%;
   height: calc(300px);
-  /* margin-top: 10%; */
   object-fit: inherit;
-  /* background: url(../../images/characters/eri-eat.png); */
   background: url(../../images/Character-VerP/Caminando/Caminando.gif);
-  /* animation: animatex 2s steps(12) infinite; */
+  background-repeat: no-repeat;
   scale: .7;
   transform: rotateY(-160deg);
 }
-/* @keyframes animatex {
-  from{
-    background-position-x: 0;
-  }
-  to{
-    background-position-x: 1080px;
-  }
-} */
+
 
 .eri_attack{
   position: absolute;
-  bottom: 20%;
-  right: 5%;
-  /* transform: translate(-40%, -40%); */
-  width: calc(1066px);
-  height: calc(400px);
-  /* margin-top: 10%; */
-  object-fit: inherit;
-  /* background: url(../../images/characters/eri-attack.png); */
+  bottom: 11%;
+  right: 3%;
+  width: 100%;
+  height: calc(400px); 
   background: url(../../images/Character-VerP/Ataque/Ataque.gif);
-  /* animation: animate 2s steps(14) infinite; */
+  background-repeat: no-repeat;
   scale: .7;
   transform: rotateY(-160deg);
 }
-/* @keyframes animate {
-  from{
-    background-position: 0;
-  }
-  to{
-    background-position: 1190px;
-  }
-} */
