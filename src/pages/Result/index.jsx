@@ -98,8 +98,10 @@ const Result = () => {
         <div onPointerOver={soundMov}  onClick={soundButton} className="mt-0">
           <Button name="play with friend" type="friend" />
         </div>
-        {boardImg === win_board_img ? (<img className="my-16" src={stand_img}/>) : (<img src={defeat_img}/>)}
         
+      </div>
+      <div className={styles.container_image_result}>
+        {boardImg === win_board_img ? (<img src={stand_img}/>) : (<img src={defeat_img}/>)}
       </div>
      
     </div>
