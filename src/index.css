@@ -48,6 +48,16 @@ a {
   font-family: '8bitOperatorPlus-Regular';
 }
 
+.katex-html {
+  display: flex!important;
+  flex-wrap: wrap!important;
+}
+
+.katex-html .base {
+  display: flex!important;
+  flex-wrap: wrap!important;
+}
+
 /**
   LOADER
 **/
