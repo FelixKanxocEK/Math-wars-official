@@ -9,7 +9,7 @@ import lose_board_1_img from "../../images/lose_board_1.png";
 import lose_board_2_img from "../../images/lose_board_2.png";
 import lose_board_3_img from "../../images/lose_board_3.png";
 import defeat_img from "../../images/Character-VerP/Derrota/Derrota.gif"
-import stand_img from "../../images/Character-VerP/Parado/Parado.gif"
+import winner_img from "../../images/Character-VerP/Victoria/Victoria.gif";
 import movSound from "../../sound/mov.mp3";
 import buttonSound from "../../sound/button.mp3";
 import winner from "../../sound/winner.mp3"
@@ -101,7 +101,7 @@ const Result = () => {
         
       </div>
       <div className={styles.container_image_result}>
-        {boardImg === win_board_img ? (<img src={stand_img}/>) : (<img src={defeat_img}/>)}
+        {boardImg === win_board_img ? (<img src={winner_img}/>) : (<img src={defeat_img}/>)}
       </div>
      
     </div>
