@@ -9,16 +9,19 @@ import paper_right_hand_img from "../../images/paper_right_hand.png";
 import scissors_right_hand_img from "../../images/scissors_right_hand.png";
 import styles from "./styles.module.css";
 
-const PlayerTwo = ({ result }) => {
+const PlayerTwo = ({ result, resultText }) => {
   const [option, setOption] = useState("rock");
   const [score, setScore] = useState(0);
   const rockHand = useRef();
   const { room, player_2, players } = useContext(SocketContext);
+  const [text, setText] = useState("");
+
   useEffect(() => {
     if (result.show) {
       setOption(room.players[player_2].option);
       setScore(room.players[player_2].score);
       // rockHand.current.style.transform = `rotate(${result.rotate}deg)`;
+      setText(resultText);
     } else if (result.reset) {
       // setOption("rock");
     } else {
@@ -45,7 +48,7 @@ const PlayerTwo = ({ result }) => {
         </div>
       )}
       {player_2 && (
-        <div>
+        <div className="w-full flex">
           <div className={styles.player_info}>
             <div className={styles.star_container}>
               {[...Array(3).keys()].map((ele, index) =>
@@ -63,37 +66,14 @@ const PlayerTwo = ({ result }) => {
               <PersonIcon />
             </div>
           </div>
-          <div className={`${styles.eri_attack } hidden`}>
-          </div>
-          <div className={`${styles.eri_attack } hidden`}>
-          </div>
-          <div className={styles.eri_eat}>
+          <div className="flex flex-1">
+            <div className={`${styles.eri_attack} ${resultText === 'lose' ? '' : 'hidden'}`}></div>
+            <div className={`${styles.eri_death} ${resultText === 'win' ? '' : 'hidden'}`}></div>
+            <div className={`${styles.eri_eat} ${resultText === 'win' ? 'hidden' : resultText
+           === 'lose' ? 'hidden' : ''}`}></div>
           </div>
         </div>
       )}
-      {/* {option === "rock" && player_2 && (
-        <img
-          src={rock_right_hand_img}
-          alt="rock_right_hand_img"
-          className={styles.rock_right_hand_img}
-          ref={rockHand}
-        />
-      )}
-      {option === "paper" && player_2 && (
-        <img
-          src={paper_right_hand_img}
-          alt="paper_right_hand_img"
-          className={styles.paper_right_hand_img}
-        />
-      )}
-      {option === "scissors" && player_2 && (
-        <img
-          src={scissors_right_hand_img}
-          alt="scissors_right_hand_img"
-          className={styles.scissors_right_hand_img}
-        />
-      )} */}
-      {/* <img className={styles.browler}/> */}
     </div>
   );
 };

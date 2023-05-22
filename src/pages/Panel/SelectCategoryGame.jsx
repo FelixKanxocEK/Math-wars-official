@@ -19,7 +19,6 @@ const SelectCategoryGame = () => {
   const getCategories = async () => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_SOCKET_URL}/categories`);
-      console.log(response);
       if (response.status === 200) {
         setCategories(response.data.categories);
       }
@@ -84,7 +83,7 @@ const SelectCategoryGame = () => {
             <select
               name="category"
               id="category"
-              className="border-2 py-2 px-1 mt-2 rounded-md outline-none focus:border-blue-500"
+              className="border-2 py-2 px-1 mt-2 rounded-md outline-none focus:border-blue-500 border-gray-200"
               value={selectCategoryGame}
               onChange={(e) => setSelectCategoryGame(e.target.value)}
             >

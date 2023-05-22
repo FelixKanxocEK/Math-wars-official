@@ -103,119 +103,42 @@
   color: white;
   margin: 8px 0;
 }
-.browler{
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  transform: translate(-40%, -40%);
-  width: calc(240px / 7);
-  height: calc(418px / 8);
-  /* margin-top: 10%; */
-  object-fit: inherit;
-  background: url(../../images/characters/brawler.png);
-  animation: animate 1s steps(4) infinite;
-  scale: 2.5;
-  transform: rotateY(-360deg);
-}
-@keyframes animate {
-  from {
-    background-position-x: 0;
-  }
-  to{
-    background-position-x: -190px;
-  }
-}
-
-.browler_animate{
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  transform: translate(-40%, -40%);
-  width: calc(240px / 7);
-  height: calc(418px / 8);
-  /* margin-top: 10%; */
-  object-fit: inherit;
-  background: url(../../images/characters/brawler.png);
-  animation: animate 1s steps(4) infinite;
-  scale: 2.5;
-  transform: rotateY(-360deg);
-}
-
-@keyframes animate {
-  from{
-    background-position-x: 0;
-  }
-  to{
-    background-position-x: 180px;
-  }
-} 
 
 .eri_death{
   position: absolute;
-  bottom: 30%;
-  right: 30%;
-  /* transform: translate(-50%, -50%); */
-  width: calc(990px / 19);
-  height: calc(110px);
-  /* margin-top: 10%; */
+  bottom: 10%;
+  right: 12%;
+  width: 100%;
+  height: calc(400px);
   object-fit: inherit;
-  background: url(../../images/characters/eri-d.png);
-  animation: animated 2s steps(9) infinite;
-  scale: 2.5;
+  background: url(../../images/Character-VerP/Derrota/Derrota.gif);
+  background-repeat: no-repeat;
+  scale: .7;
   transform: rotateY(-160deg);
-}
-
-@keyframes animated {
-  from{
-    background-position-x: 0;
-  }
-  to{
-    background-position-x: 990px;
-  }
 }
 
 .eri_eat{
   position: absolute;
-  bottom: 30%;
-  right: 30%;
-  /* transform: translate(-40%, -40%); */
-  width: calc(1080px / 22);
-  height: calc(90px);
-  /* margin-top: 10%; */
+  bottom: 20%;
+  right: 5%;
+  width: 100%;
+  height: calc(300px);
   object-fit: inherit;
-  background: url(../../images/characters/eri-eat.png);
-  animation: animatex 2s steps(12) infinite;
-  scale: 2.5;
+  background: url(../../images/Character-VerP/Caminando/Caminando.gif);
+  background-repeat: no-repeat;
+  scale: .7;
   transform: rotateY(-160deg);
 }
-@keyframes animatex {
-  from{
-    background-position-x: 0;
-  }
-  to{
-    background-position-x: 1080px;
-  }
-}
+
 
 .eri_attack{
   position: absolute;
-  bottom: 30%;
-  right: 30%;
-  /* transform: translate(-40%, -40%); */
-  width: calc(1190px / 14);
-  height: calc(70px);
-  /* margin-top: 10%; */
-  object-fit: inherit;
-  background: url(../../images/characters/eri-attack.png);
-  animation: animate 2s steps(14) infinite;
-  scale: 2.5;
+  bottom: 11%;
+  right: 3%;
+  width: 100%;
+  height: calc(400px); 
+  background: url(../../images/Character-VerP/Ataque/Ataque.gif);
+  background-repeat: no-repeat;
+  scale: .7;
   transform: rotateY(-160deg);
-}
-@keyframes animate {
-  from{
-    background-position: 0;
-  }
-  to{
-    background-position: 1190px;
-  }
 }

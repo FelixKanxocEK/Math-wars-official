@@ -34,7 +34,7 @@ const GameLayout = () => {
           className="background_img"
           alt="background img"
         />
-        <div className="container w-11/12">
+        <div className="container w-11/12 h-height_90">
             <Outlet />
         </div>
       </main>

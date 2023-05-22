@@ -9,6 +9,9 @@ module.exports = {
       width: {
         width_49: '49%',
         width_90: '90%'
+      },
+      height: {
+        height_90: '90%',
       }
     },
   },

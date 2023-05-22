@@ -68,78 +68,36 @@
 
 .ken_death{
   position: absolute;
-  bottom: 30%;
-  left: 15%;
-  /* transform: translate(-40%, -40%); */
-  width: calc(920px/ 10);
-  height: calc(75px);
-  /* margin-top: 10%; */
+  bottom: 10%;
+  left: 12%;
+  width: 100%;
+  height: calc(400px);
   object-fit: inherit;
-  background: url(../../images/characters/ken_death.png);
-  animation: animate 1s steps(8) infinite;
-  scale: 2;
-  transform: rotateY(-180deg);
-  border: none;
-}
-
-@keyframes animate {
-  from {
-    background-position-x: 0;
-  }
-
-  to {
-    background-position-x: 920px;
-  }
+  background: url(../../images/Character-VerP/Derrota/Derrota.gif);
+  background-repeat: no-repeat;
+  scale: .7;
 }
 
 .ken_run{
   position: absolute;
-  bottom: 30%;
-  left: 15%;
-  /* transform: translate(-40%, -40%); */
-  width: calc(1305px/ 9);
-  height: calc(80px);
-  /* margin-top: 10%; */
+  bottom: 20%;
+  left: 5%;
+  width: 100%;
+  height: calc(300px);
   object-fit: inherit;
-  background: url(../../images/characters/ken_run.png);
-  animation: animatex 1s steps(9) infinite;
-  scale: 2;
-  transform: rotateY(-180deg);
+  background: url(../../images/Character-VerP/Caminando/Caminando.gif);
+  background-repeat: no-repeat;
+  scale: .7;
   border: none;
-}
-@keyframes animatex {
-  from {
-    background-position-x: 0;
-  }
-
-  to {
-    background-position-x: -1305px;
-  }
 }
 
 .ken{
   position: absolute;
-  bottom: 30%;
-  left: 15%;
-  /* transform: translate(-40%, -40%); */
-  width: calc(1159px / 8);
-  height: calc(80px);
-  /* margin-top: 10%; */
-  object-fit: inherit;
-  background: url(../../images/characters/ken-attack.png);
-  animation: animated 1s steps(8) infinite;
-  scale: 2;
-  transform: rotateY(-180deg);
-  border: none;
-}
-
-@keyframes animated {
-  from {
-    background-position-x: 0;
-  }
-
-  to {
-    background-position-x: 1159px;
-  }
-
+  bottom: 11%;
+  left: 3%;
+  width: 100%;
+  height: calc(400px);
+  background: url(../../images/Character-VerP/Ataque/Ataque.gif);
+  background-repeat: no-repeat;
+  scale: .7;
 }

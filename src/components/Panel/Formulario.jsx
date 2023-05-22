@@ -21,6 +21,7 @@ const Formulario = ({
   categories,
   category,
   setCategory,
+  id
 }) => {
   const [charCode, setCharCode] = useState(97);
 
@@ -31,11 +32,8 @@ const Formulario = ({
 
   return (
     <div className="flex justify-center items-center flex-col" >
-      <div className="flex justify-end items-end w-full px-5 pt-5" >
-        <a className="rounded-lg bg-blue-500 hover:bg-blue-700 transition-all duration-300 px-4 py-3 text-white" href="https://www.hostmath.com/Default.aspx" target={"_blank"} >Como crear problemas</a>
-      </div>
       <form
-        className="border-2 rounded-md shadow-md w-1/2 my-10 py-5 px-4 bg-white"
+        className="border-2 rounded-md shadow-md w-1/2 mb-10 mt-5 py-5 px-4 bg-white border-gray-200"
         onSubmit={(e) => handleSubmit(e)}
       >
         <div className="flex flex-col">
@@ -47,7 +45,7 @@ const Formulario = ({
             name="problem"
             type="text"
             placeholder="Escribe el problema..."
-            className="border-2 py-2 px-1 rounded-md outline-none focus:border-blue-500"
+            className="border-2 py-2 px-1 rounded-md outline-none focus:border-blue-500 border-gray-200"
             value={problem.value}
             onChange={(e) => setProblem({ value: e.target.value, error: "" })}
           />
@@ -64,12 +62,12 @@ const Formulario = ({
           <label htmlFor="option" className="font-bold mb-1">
             Respuesta:
           </label>
-          {options.length < 3 ? (
+          {options.length < 4 ? (
             <>
               <textarea
                 value={ecuacion}
                 onChange={(e) => setEcuacion(e.target.value)}
-                className="border-2 py-2 px-1 rounded-md outline-none focus:border-blue-500"
+                className="border-2 py-2 px-1 rounded-md outline-none focus:border-blue-500 border-gray-200"
               />
               <div className="mt-6 mb-6 flex justify-center">
                 <Latex>
@@ -142,7 +140,7 @@ const Formulario = ({
               <select
                 name="correct"
                 id="correct"
-                className="border-2 py-2 px-1 mt-2 rounded-md outline-none focus:border-blue-500 w-full"
+                className="border-2 py-2 px-1 mt-2 rounded-md outline-none focus:border-blue-500 w-full border-gray-200"
                 value={correctAnswer.value}
                 onChange={(e) =>
                   setCorrectAnswer({ value: e.target.value, error: "" })
@@ -168,7 +166,7 @@ const Formulario = ({
               <select
                 name="category"
                 id="category"
-                className="border-2 py-2 px-1 mt-2 rounded-md outline-none focus:border-blue-500 w-full"
+                className="border-2 py-2 px-1 mt-2 rounded-md outline-none focus:border-blue-500 w-full border-gray-200"
                 value={category.value}
                 onChange={(e) =>
                   setCategory({ value: e.target.value, error: "" })
@@ -202,7 +200,7 @@ const Formulario = ({
                 type="submit"
                 className="w-full px-3 py-1 rounded bg-blue-700 hover:bg-blue-800 transition-all duration-300 text-white mt-3 hover:cursor-pointer"
               >
-                Registrar Problema
+                {id ? 'Editar Problema' : 'Registrar Problema'}
               </button>
             </div>
           </>

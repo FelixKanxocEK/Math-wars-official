@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@font-face {
+  font-family: 'pixelart';
+  src: url('./assets/fonts/pixel_art/pixelart.ttf');
+}
 
+@font-face {
+  font-family: '8bitOperatorPlus-Regular';
+  src: url('./assets/fonts/8-bit-operator/8bitOperatorPlus-Regular.ttf');
+}
 
 @tailwind base;
 @tailwind components;
@@ -26,4 +34,62 @@ a {
   --red: #d92212;
   --purple: #955cd9;
   --green: #01a049;
+}
+
+* {
+  border-color: black;
+}
+
+.pixel-art {
+  font-family: 'pixelart';
+}
+
+.bitOperatorPlus-Regular{
+  font-family: '8bitOperatorPlus-Regular';
+}
+
+/**
+  LOADER
+**/
+
+.spinner {
+  width: 40px;
+  height: 40px;
+
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
 }
