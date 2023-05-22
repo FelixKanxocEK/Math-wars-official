@@ -93,12 +93,12 @@ const Result = () => {
         alt="scissors_right_hand_img"
         className={styles.scissors_hand}
       />
-      <img src={boardImg} alt="boardImg" className={styles.board_img} />
+      <img src={boardImg} alt="boardImg" className={`${styles.board_img} h-full`} />
       <div  className={styles.btn_container}>
         <div onPointerOver={soundMov}  onClick={soundButton} className="mt-0">
           <Button name="play with friend" type="friend" />
         </div>
-        {boardImg === win_board_img ? (<img className="my-16" src={stand_img}/>) : (<img className="my-16" src={defeat_img}/>)}
+        {boardImg === win_board_img ? (<img className="my-16" src={stand_img}/>) : (<img src={defeat_img}/>)}
         
       </div>
      
