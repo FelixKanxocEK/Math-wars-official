@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { SocketContext } from "../../context/SocketContext";
-import btn_background_img from "../../images/btn_background.png";
+import btn_background_img from "../../images/btn_background-min.png";
 import styles from "./styles.module.css";
 
 const Button = ({ name, type }) => {

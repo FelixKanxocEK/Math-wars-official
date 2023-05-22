@@ -4,9 +4,9 @@ import JoinLink from "../JoinLink";
 import PersonIcon from "@mui/icons-material/Person";
 // import StarIcon from "@mui/icons-material/Star";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import rock_right_hand_img from "../../images/rock_right_hand.png";
-import paper_right_hand_img from "../../images/paper_right_hand.png";
-import scissors_right_hand_img from "../../images/scissors_right_hand.png";
+import rock_right_hand_img from "../../images/rock_right_hand-min.png";
+import paper_right_hand_img from "../../images/paper_right_hand-min.png";
+import scissors_right_hand_img from "../../images/scissors_right_hand-min.png";
 import styles from "./styles.module.css";
 
 const PlayerTwo = ({ result, resultText }) => {

@@ -3,11 +3,11 @@ import { SocketContext } from "../../context/SocketContext";
 import PersonIcon from "@mui/icons-material/Person";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 // import StarIcon from "@mui/icons-material/Star";
-import rock_left_hand_img from "../../images/rock_left_hand.png";
-import paper_left_hand_img from "../../images/paper_left_hand.png";
-import scissors_left_hand_img from "../../images/scissors_left_hand.png";
+import rock_left_hand_img from "../../images/rock_left_hand-min.png";
+import paper_left_hand_img from "../../images/paper_left_hand-min.png";
+import scissors_left_hand_img from "../../images/scissors_left_hand-min.png";
 import styles from "./styles.module.css";
-import ken from "../../images/characters/ken.png";
+import ken from "../../images/characters/ken-min.png";
 import { keyframes } from "@emotion/react";
 import { Calculate, Translate } from "@mui/icons-material";
 
