@@ -111,7 +111,7 @@
   width: 100%;
   height: calc(400px);
   object-fit: inherit;
-  background: url(../../images/Character-VerP/Derrota/Derrota.gif);
+  background: url(../../images/Character-VerP/Derrota/Derrota-min.gif);
   background-repeat: no-repeat;
   scale: .7;
   transform: rotateY(-160deg);
@@ -124,7 +124,7 @@
   width: 100%;
   height: calc(300px);
   object-fit: inherit;
-  background: url(../../images/Character-VerP/Caminando/Caminando.gif);
+  background: url(../../images/Character-VerP/Caminando/Caminando-min.gif);
   background-repeat: no-repeat;
   scale: .7;
   transform: rotateY(-160deg);
@@ -137,7 +137,7 @@
   right: 3%;
   width: 100%;
   height: calc(400px); 
-  background: url(../../images/Character-VerP/Ataque/Ataque.gif);
+  background: url(../../images/Character-VerP/Ataque/Ataque-min.gif);
   background-repeat: no-repeat;
   scale: .7;
   transform: rotateY(-160deg);
