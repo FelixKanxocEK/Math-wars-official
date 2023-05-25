@@ -28,7 +28,7 @@ const Home = () => {
           className={styles.rock_hand}
         />
         <div onPointerOver={soundMov} className={styles.btn_container}>
-          <Button name="Jugar con un amigo" type="friend" />
+          <Button name="Jugar" type="friend" />
         </div>
       </div>
     </>

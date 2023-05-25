@@ -8,11 +8,11 @@ import win_board_img from "../../images/win_board.png";
 import lose_board_1_img from "../../images/lose_board_1.png";
 import lose_board_2_img from "../../images/lose_board_2.png";
 import lose_board_3_img from "../../images/lose_board_3.png";
-import defeat_img from "../../images/Character-VerP/Derrota/Derrota.gif"
+import defeat_img from "../../images/Character-VerP/Derrota/Derrota.gif";
 import winner_img from "../../images/Character-VerP/Victoria/Victoria.gif";
 import movSound from "../../sound/mov.mp3";
 import buttonSound from "../../sound/button.mp3";
-import winner from "../../sound/winner.mp3"
+import winner from "../../sound/winner.mp3";
 import looser from "../../sound/looser.mp3";
 import { Howl, Howler } from "howler";
 import styles from "./styles.module.css";
@@ -21,34 +21,33 @@ const Result = () => {
   Howler.autoUnlock = false;
   Howler.autoSuspend = false;
   var mov = new Howl({
-    src:[movSound],
-    volume: 1
-  })
+    src: [movSound],
+    volume: 1,
+  });
 
-  const soundMov = () =>{
+  const soundMov = () => {
     mov.play();
-  }
+  };
 
   var buttonS = new Howl({
-    src:[buttonSound],
-    volume: 1
-  })
+    src: [buttonSound],
+    volume: 1,
+  });
 
-  const soundButton = () =>{
+  const soundButton = () => {
     buttonS.play();
-  }
+  };
 
   var win = new Howl({
-    src:[winner],
-    volume: 1
-  })
+    src: [winner],
+    volume: 1,
+  });
 
   var loose = new Howl({
-    src:[looser],
-    volume: 1
-  })
+    src: [looser],
+    volume: 1,
+  });
 
-  
   const [boardImg, setBoardImg] = useState("");
 
   const { room, player_1 } = useContext(SocketContext);
@@ -59,19 +58,16 @@ const Result = () => {
     if (score === 3) {
       setBoardImg(win_board_img);
       win.play();
-    }
-    else if (score === 2){
+    } else if (score === 2) {
       setBoardImg(lose_board_2_img);
       loose.play();
-    } 
-    else if (score === 1){
+    } else if (score === 1) {
       setBoardImg(lose_board_1_img);
       loose.play();
-    } 
-    else{
+    } else {
       setBoardImg(lose_board_3_img);
       loose.play();
-    } 
+    }
   }, []);
 
   return (
@@ -93,17 +89,23 @@ const Result = () => {
         alt="scissors_right_hand_img"
         className={styles.scissors_hand}
       />
-      <img src={boardImg} alt="boardImg" className={`${styles.board_img} h-full`} />
-      <div  className={styles.btn_container}>
-        <div onPointerOver={soundMov}  onClick={soundButton} className="mt-0">
-          <Button name="play with friend" type="friend" />
+      <img
+        src={boardImg}
+        alt="boardImg"
+        className={`${styles.board_img} h-full`}
+      />
+      <div className={styles.btn_container}>
+        <div onPointerOver={soundMov} onClick={soundButton} className="mt-0">
+          <Button name="Jugar de nuevo" type="friend" />
         </div>
-        
       </div>
       <div className={styles.container_image_result}>
-        {boardImg === win_board_img ? (<img src={winner_img}/>) : (<img src={defeat_img}/>)}
+        {boardImg === win_board_img ? (
+          <img src={winner_img} />
+        ) : (
+          <img src={defeat_img} />
+        )}
       </div>
-     
     </div>
   );
 };
