@@ -1,15 +1,15 @@
 import { useEffect, useState, useContext } from "react";
 import { SocketContext } from "../../context/SocketContext";
 import Button from "../../components/Button";
-import win_background_img from "../../images/win_background-min.png";
-import rock_left_hand_img from "../../images/rock_left_hand-min.png";
-import scissors_right_hand_img from "../../images/scissors_right_hand-min.png";
-import win_board_img from "../../images/win_board-min.png";
-import lose_board_1_img from "../../images/lose_board_1-min.png";
-import lose_board_2_img from "../../images/lose_board_2-min.png";
-import lose_board_3_img from "../../images/lose_board_3-min.png";
-import defeat_img from "../../images/Character-VerP/Derrota/Derrota.gif";
-import stand_img from "../../images/Character-VerP/Victoria/Victoria.gif";
+import win_background_img from "../../images/win_background.png";
+import rock_left_hand_img from "../../images/rock_left_hand.png";
+import scissors_right_hand_img from "../../images/scissors_right_hand.png";
+import win_board_img from "../../images/win_board.png";
+import lose_board_1_img from "../../images/lose_board_1.png";
+import lose_board_2_img from "../../images/lose_board_2.png";
+import lose_board_3_img from "../../images/lose_board_3.png";
+import defeat_img from "../../images/Character-VerP/Derrota/Derrota.gif"
+import winner_img from "../../images/Character-VerP/Victoria/Victoria.gif";
 import movSound from "../../sound/mov.mp3";
 import buttonSound from "../../sound/button.mp3";
 import winner from "../../sound/winner.mp3";
@@ -105,11 +105,7 @@ const Result = () => {
         )}
       </div>
       <div className={styles.container_image_result}>
-        {boardImg === win_board_img ? (
-          <img src={stand_img} />
-        ) : (
-          <img src={defeat_img} />
-        )}
+        {boardImg === win_board_img ? (<img src={winner_img}/>) : (<img src={defeat_img}/>)}
       </div>
     </div>
   );
